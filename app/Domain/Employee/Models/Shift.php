@@ -16,4 +16,9 @@ class Shift extends Model
         'paid_at',
         'employee_id'
     ];
+
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
+    }
 }

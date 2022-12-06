@@ -6,6 +6,8 @@ use App\DomainUtils\BaseBLL\BaseBLLInterface;
 
 interface ShiftBLLInterface extends BaseBLLInterface
 {
+    public function getAllShifts();
+
     public function getRatePerHourEmployee($employee);
 
     public function getHoursPerEmployee($employee);
@@ -15,4 +17,11 @@ interface ShiftBLLInterface extends BaseBLLInterface
     public function getAverageTotalPay($employee);
 
     public function getEmployeePayments($employee);
+
+    public function getStatusOptions();
+
+    public function getTaxableOptions();
+
+    public function getTypeOptions();
+
 }

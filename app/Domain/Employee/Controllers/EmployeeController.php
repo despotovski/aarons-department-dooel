@@ -9,8 +9,6 @@ use App\Domain\Employee\BLL\Employee\EmployeeBLLInterface;
 use App\Traits\DataTableUtils;
 use Yajra\DataTables\Facades\DataTables;
 
-use function Symfony\Component\Translation\t;
-
 /**
  * @property EmployeeBLLInterface employeeBLL
  * @property ShiftBLLInterface $shiftBLL
@@ -19,8 +17,10 @@ class EmployeeController extends Controller
 {
     use DataTableUtils;
 
-    public function __construct(EmployeeBLLInterface $employeeBLL, ShiftBLLInterface $shiftBLL)
-    {
+    public function __construct(
+        EmployeeBLLInterface $employeeBLL,
+        ShiftBLLInterface $shiftBLL
+    ) {
         $this->employeeBLL = $employeeBLL;
         $this->shiftBLL = $shiftBLL;
     }
@@ -45,6 +45,11 @@ class EmployeeController extends Controller
             ->make(true);
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param Employee $employee
+     */
     public function show(Employee $employee)
     {
         return inertia('Employee/Show', [

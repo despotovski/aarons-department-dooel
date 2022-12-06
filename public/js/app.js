@@ -162,21 +162,35 @@ var map = {
 		"/js/vendor",
 		"resources_js_domain_Error_js"
 	],
-	"./Test/PublicLayoutTest": [
-		"./resources/js/domain/Test/PublicLayoutTest.js",
-		"resources_js_domain_Test_PublicLayoutTest_js"
+	"./Shift/Create": [
+		"./resources/js/domain/Shift/Create.js",
+		"/js/vendor",
+		"resources_js_domain_Shift_Create_js"
 	],
-	"./Test/PublicLayoutTest.js": [
-		"./resources/js/domain/Test/PublicLayoutTest.js",
-		"resources_js_domain_Test_PublicLayoutTest_js"
+	"./Shift/Create.js": [
+		"./resources/js/domain/Shift/Create.js",
+		"/js/vendor",
+		"resources_js_domain_Shift_Create_js"
 	],
-	"./Test/Test": [
-		"./resources/js/domain/Test/Test.js",
-		"resources_js_domain_Test_Test_js"
+	"./Shift/Index": [
+		"./resources/js/domain/Shift/Index.js",
+		"/js/vendor",
+		"resources_js_domain_Shift_Index_js"
 	],
-	"./Test/Test.js": [
-		"./resources/js/domain/Test/Test.js",
-		"resources_js_domain_Test_Test_js"
+	"./Shift/Index.js": [
+		"./resources/js/domain/Shift/Index.js",
+		"/js/vendor",
+		"resources_js_domain_Shift_Index_js"
+	],
+	"./Shift/RemoveShift": [
+		"./resources/js/domain/Shift/RemoveShift.js",
+		"/js/vendor",
+		"resources_js_domain_Shift_RemoveShift_js"
+	],
+	"./Shift/RemoveShift.js": [
+		"./resources/js/domain/Shift/RemoveShift.js",
+		"/js/vendor",
+		"resources_js_domain_Shift_RemoveShift_js"
 	]
 };
 function webpackAsyncContext(req) {

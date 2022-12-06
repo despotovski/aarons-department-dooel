@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('employee')
-    //->middleware('auth')
     ->group(function () {
 
         Route::get('/', 'EmployeeController@index')->name('employee.index');
@@ -22,4 +21,14 @@ Route::prefix('employee')
         Route::get('{employee}/general-info', 'EmployeeController@show')->name('employee.show');
         Route::get('{employee}/payments', 'EmployeeController@getEmployeePayments')->name('employee.payments');
         Route::post('/import', 'ImportController@import')->name('employee.import');
+    });
+
+Route::prefix('shift')
+    ->group(function () {
+
+        Route::get('/', 'ShiftController@index')->name('shift.index');
+        Route::get('/get', 'ShiftController@get')->name('shift.get');
+        Route::get('/create', 'ShiftController@create')->name('shift.create');
+        Route::post('/', 'ShiftController@store')->name('shift.store');
+        Route::delete('/{shift}', 'ShiftController@destroy')->name('shift.destroy');
     });

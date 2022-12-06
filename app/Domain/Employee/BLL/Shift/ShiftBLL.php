@@ -18,6 +18,13 @@ class ShiftBLL extends BaseBLL implements ShiftBLLInterface
         $this->DAL = $shiftDAL;
     }
 
+    public function getAllShifts()
+    {
+        return $this->DAL->query()
+            ->with('employee')
+            ->select('shifts.*');
+    }
+
     public function getRatePerHourEmployee($employee)
     {
         return $this->DAL->query()
@@ -64,5 +71,51 @@ class ShiftBLL extends BaseBLL implements ShiftBLLInterface
             ->whereNotNull('paid_at')
             ->take(5)
             ->select('shifts.*');
+    }
+
+    public function getStatusOptions()
+    {
+        return [
+            [
+                'label' => 'Pending',
+                'value' => 'Pending'
+            ],
+            [
+                'label' => 'Complete',
+                'value' => 'Complete',
+            ],
+            [
+                'label' => 'Failed',
+                'value' => 'Failed'
+            ]
+        ];
+    }
+
+    public function getTaxableOptions()
+    {
+        return [
+            [
+                'label' => 'Yes',
+                'value' => 1
+            ],
+            [
+                'label' => 'No',
+                'value' => 0
+            ]
+        ];
+    }
+
+    public function getTypeOptions()
+    {
+        return [
+            [
+                'label' => 'Day',
+                'value' => 'Day'
+            ],
+            [
+                'label' => 'Night',
+                'value' => 'Night'
+            ]
+        ];
     }
 }

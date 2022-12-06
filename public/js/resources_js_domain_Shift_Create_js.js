@@ -1,5 +1,5 @@
 "use strict";
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_domain_Employee_Index_js"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_domain_Shift_Create_js"],{
 
 /***/ "./resources/js/components/DataTable/BulkActions/BulkActionsSelect.js":
 /*!****************************************************************************!*\
@@ -7886,10 +7886,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/domain/Employee/ImportList.js":
-/*!****************************************************!*\
-  !*** ./resources/js/domain/Employee/ImportList.js ***!
-  \****************************************************/
+/***/ "./resources/js/domain/Shift/Create.js":
+/*!*********************************************!*\
+  !*** ./resources/js/domain/Shift/Create.js ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -7898,11 +7898,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components */ "./resources/js/components/index.js");
-/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
+/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils/index.js");
-/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var _components_Shared_Layout_Admin_LayoutAdmin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Shared/Layout/Admin/LayoutAdmin */ "./resources/js/components/Shared/Layout/Admin/LayoutAdmin.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -7913,241 +7914,158 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var ImportList = function ImportList(_ref) {
-  var cancelCallback = _ref.cancelCallback,
-      successCallback = _ref.successCallback;
-
-  var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_6__.useTranslation)(),
+var Create = function Create() {
+  var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_7__.useTranslation)(),
       t = _useTranslation.t;
 
-  var links = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.links;
-  var formRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(formik__WEBPACK_IMPORTED_MODULE_4__.Formik, {
-      innerRef: formRef,
-      initialValues: {},
-      enableReinitialize: true,
-      validate: function validate(values) {
-        var rules = {
-          file: 'required'
-        };
-        return (0,_utils__WEBPACK_IMPORTED_MODULE_3__.validateFormData)(values, rules);
-      },
-      onSubmit: function onSubmit(values, _ref2) {
-        var setSubmitting = _ref2.setSubmitting,
-            setErrors = _ref2.setErrors;
-        var data = new FormData(); // eslint-disable-line
-
-        data.append('file', values.file);
-        _utils__WEBPACK_IMPORTED_MODULE_3__.api.post(links.employee["import"], data, {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
-        }).then(function (res) {
-          setSubmitting(false);
-          successCallback(res);
-        })["catch"](function (error) {
-          setSubmitting(false);
-        });
-      },
-      validateOnChange: false,
-      validateOnBlur: false,
-      children: function children(_ref3) {
-        var values = _ref3.values,
-            handleSubmit = _ref3.handleSubmit,
-            isSubmitting = _ref3.isSubmitting,
-            setFieldValue = _ref3.setFieldValue;
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          className: "form-container",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
-            onSubmit: handleSubmit,
-            className: "form-class row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-              className: "col-md-12",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.FileUpload, {
-                formField: {
-                  name: 'file',
-                  label: t('nft.import_modal.import_field'),
-                  placeholder: t('nft.import_modal.import_field'),
-                  accept: 'application/vnd.ms-excel, .xlsx, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-                },
-                value: values.file,
-                onChange: function onChange(e) {
-                  setFieldValue('file', e);
-                }
-              }, 'test_input')
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-              className: "form-footer form-footer-right col-md-12",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-                className: "btn btn-primary-ghost",
-                type: "button",
-                onClick: function onClick() {
-                  return cancelCallback();
-                },
-                children: t('ui.cancel')
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-                className: "btn btn-primary",
-                type: "submit",
-                disabled: isSubmitting,
-                children: t('ui.submit')
-              })]
-            })]
-          })
-        });
-      }
-    })
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImportList);
-
-/***/ }),
-
-/***/ "./resources/js/domain/Employee/Index.js":
-/*!***********************************************!*\
-  !*** ./resources/js/domain/Employee/Index.js ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _ImportList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImportList */ "./resources/js/domain/Employee/ImportList.js");
-/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components */ "./resources/js/components/index.js");
-/* harmony import */ var react_toast_notifications__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toast-notifications */ "./node_modules/react-toast-notifications/dist/index.js");
-/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils/index.js");
-/* harmony import */ var _components_Shared_Layout_Admin_LayoutAdmin__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/Shared/Layout/Admin/LayoutAdmin */ "./resources/js/components/Shared/Layout/Admin/LayoutAdmin.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-
-
-
-
-
-
-var Index = function Index() {
-  var links = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.usePage)().props.links;
-  var modalRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
-
-  var _useToasts = (0,react_toast_notifications__WEBPACK_IMPORTED_MODULE_3__.useToasts)(),
-      addToast = _useToasts.addToast;
-
-  var tableRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
-
-  var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_9__.useTranslation)(),
-      t = _useTranslation.t;
-
-  var columns = [{
-    id: 'full_name',
-    Header: t('fields.name'),
-    accessor: 'full_name',
-    name: 'full_name',
-    headerClassName: 'cell-width',
-    orderable: true,
-    disableSortBy: false,
-    searchable: false,
-    disableFilters: true,
-    search: {
-      value: '',
-      regex: 'true'
-    }
-  }, {
-    id: 'employer',
-    Header: 'Employer',
-    accessor: 'employer.name',
-    name: 'employer',
-    headerClassName: 'cell-width',
-    orderable: false,
-    disableSortBy: true,
-    searchable: false,
-    disableFilters: true,
-    search: {
-      value: '',
-      regex: 'true'
-    }
-  }];
-
-  var handleImportEmployees = function handleImportEmployees() {
-    var title = 'Import list of employees';
-
-    var body = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ImportList__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      cancelCallback: handleImportEmployeesCancelCallback,
-      successCallback: handleImportEmployeesSuccessCallback
-    });
-
-    modalRef.current.setContent(title, body);
-  };
-
-  var handleImportEmployeesCancelCallback = function handleImportEmployeesCancelCallback() {
-    modalRef.current.close();
-  };
-
-  var handleImportEmployeesSuccessCallback = function handleImportEmployeesSuccessCallback(res) {
-    addToast(res.data.message, res.data.appearance ? {
-      appearance: res.data.appearance
-    } : {
-      appearance: 'success'
-    });
-    modalRef.current.close();
-    tableRef.current.reload();
-  };
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Shared_Layout_Admin_LayoutAdmin__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-      className: "container mt-xxl",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-        className: "flex-space-between",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-          className: "pb-md",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h1", {
-            className: "pb-0 page-header",
-            children: "Employees"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-          onClick: function onClick() {
-            return handleImportEmployees();
-          },
-          type: "button",
-          className: "btn btn-primary mh-xs",
-          children: "Import File"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components__WEBPACK_IMPORTED_MODULE_2__.DataTable, {
-        ref: tableRef,
-        columns: columns,
-        fetchUrl: links.employee.get,
-        initialState: {
-          pageSize: 10,
-          sortBy: [{
-            id: 'full_name',
-            desc: true
-          }]
-        },
-        rowProps: {
-          onClick: function onClick(row) {
-            _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__.Inertia.visit((0,_utils__WEBPACK_IMPORTED_MODULE_6__.route)(links.employee.generalInfo, {
-              employee: row.original.id
-            }));
-          }
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props,
+      links = _usePage$props.links,
+      options = _usePage$props.options;
+  var formData = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(function () {
+    return {
+      form: {
+        url: links.shift.store,
+        method: 'post',
+        wrapper: {
+          element: 'div',
+          "class": 'row'
         }
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components__WEBPACK_IMPORTED_MODULE_2__.ReactModal, {
-        ref: modalRef,
-        className: "ReactModal__Content--Medium"
-      })]
+      },
+      fields: [{
+        element: _components__WEBPACK_IMPORTED_MODULE_1__.FORM_ELEMENT_TYPES.INPUT,
+        type: 'text',
+        name: 'full_name',
+        label: 'Employee name',
+        placeholder: 'Employee name',
+        rules: 'required',
+        wrapper: {
+          element: 'div',
+          "class": 'col-6'
+        }
+      }, {
+        element: _components__WEBPACK_IMPORTED_MODULE_1__.FORM_ELEMENT_TYPES.INPUT,
+        type: 'text',
+        name: 'name',
+        label: 'Employer name',
+        placeholder: 'Employer name',
+        rules: 'required',
+        wrapper: {
+          element: 'div',
+          "class": 'col-6'
+        }
+      }, {
+        element: _components__WEBPACK_IMPORTED_MODULE_1__.FORM_ELEMENT_TYPES.DATEPICKER,
+        name: 'date',
+        label: 'Date',
+        placeholder: 'Date',
+        rules: 'required',
+        wrapper: {
+          element: 'div',
+          "class": 'col-6'
+        }
+      }, {
+        element: _components__WEBPACK_IMPORTED_MODULE_1__.FORM_ELEMENT_TYPES.INPUT,
+        type: 'number',
+        name: 'hours',
+        label: 'Hours',
+        placeholder: 'Hours',
+        rules: 'required',
+        wrapper: {
+          element: 'div',
+          "class": 'col-6'
+        }
+      }, {
+        element: _components__WEBPACK_IMPORTED_MODULE_1__.FORM_ELEMENT_TYPES.INPUT,
+        type: 'number',
+        name: 'rate_per_hour',
+        label: 'Rate per hour',
+        placeholder: 'Rate per hour',
+        rules: 'required',
+        wrapper: {
+          element: 'div',
+          "class": 'col-6'
+        }
+      }, {
+        element: _components__WEBPACK_IMPORTED_MODULE_1__.FORM_ELEMENT_TYPES.SELECT,
+        type: 'text',
+        name: 'taxable',
+        label: 'Taxable',
+        placeholder: 'Taxable',
+        options: options.taxable,
+        rules: 'required',
+        wrapper: {
+          element: 'div',
+          "class": 'col-6'
+        }
+      }, {
+        element: _components__WEBPACK_IMPORTED_MODULE_1__.FORM_ELEMENT_TYPES.SELECT,
+        type: 'text',
+        name: 'status',
+        label: 'Status',
+        placeholder: 'Status',
+        options: options.statuses,
+        rules: 'required',
+        wrapper: {
+          element: 'div',
+          "class": 'col-6'
+        }
+      }, {
+        element: _components__WEBPACK_IMPORTED_MODULE_1__.FORM_ELEMENT_TYPES.SELECT,
+        type: 'text',
+        name: 'type',
+        label: 'Type',
+        placeholder: 'Type',
+        options: options.type,
+        rules: 'required',
+        wrapper: {
+          element: 'div',
+          "class": 'col-6'
+        }
+      }],
+      buttons: {
+        "class": 'form-footer col-12',
+        submit: {
+          "class": 'btn btn-primary',
+          text: t('ui.update')
+        },
+        additional: [{
+          "class": 'btn btn-primary-ghost',
+          text: t('ui.cancel'),
+          type: 'button' // onClick: () => {
+          //   Inertia.visit(links.user.myProfile.index)
+          // }
+
+        }]
+      }
+    };
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Shared_Layout_Admin_LayoutAdmin__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("section", {
+      className: "pv-xl",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "container",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "pb-md",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
+            className: "pb-0 page-header",
+            children: "Create shift"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_utils__WEBPACK_IMPORTED_MODULE_5__.Link, {
+          href: links.shift.index,
+          className: "btn-back",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.IconChevronLeft, {}), "Back to list of shifts"]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "form-container",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.FormBuilder, {
+            formData: formData
+          })
+        })]
+      })
     })
   });
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Index);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Create);
 
 /***/ }),
 
@@ -8805,4 +8723,4 @@ validatorjs_dist_validator_min__WEBPACK_IMPORTED_MODULE_0___default().register('
 /***/ })
 
 }]);
-//# sourceMappingURL=resources_js_domain_Employee_Index_js.js.map?id=cd98e11645585441
+//# sourceMappingURL=resources_js_domain_Shift_Create_js.js.map?id=a104680071798af0

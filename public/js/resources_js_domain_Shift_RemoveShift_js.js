@@ -1,5 +1,5 @@
 "use strict";
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_domain_Employee_Index_js"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_domain_Shift_RemoveShift_js"],{
 
 /***/ "./resources/js/components/DataTable/BulkActions/BulkActionsSelect.js":
 /*!****************************************************************************!*\
@@ -7489,229 +7489,6 @@ var ReactModal = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(
 
 /***/ }),
 
-/***/ "./resources/js/components/Shared/Layout/Admin/Header.js":
-/*!***************************************************************!*\
-  !*** ./resources/js/components/Shared/Layout/Admin/Header.js ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-var Header = function Header() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("header", {
-    className: "main-header",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
-        className: "text-center",
-        children: "AARONS DEPARTMENT DOOEL"
-      })
-    })
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header);
-
-/***/ }),
-
-/***/ "./resources/js/components/Shared/Layout/Admin/LayoutAdmin.js":
-/*!********************************************************************!*\
-  !*** ./resources/js/components/Shared/Layout/Admin/LayoutAdmin.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _SideMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SideMenu */ "./resources/js/components/Shared/Layout/Admin/SideMenu.js");
-/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Header */ "./resources/js/components/Shared/Layout/Admin/Header.js");
-/* harmony import */ var _ToastMessages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../ToastMessages */ "./resources/js/components/Shared/ToastMessages.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-
-var LayoutAdmin = function LayoutAdmin(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-    id: "main-layout",
-    className: "admin-page",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_SideMenu__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("main", {
-      id: "main",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "container",
-        children: props.children
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ToastMessages__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LayoutAdmin);
-
-/***/ }),
-
-/***/ "./resources/js/components/Shared/Layout/Admin/SideMenu.js":
-/*!*****************************************************************!*\
-  !*** ./resources/js/components/Shared/Layout/Admin/SideMenu.js ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components_Icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../components/Icons */ "./resources/js/components/Icons/index.js");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _Icons_IconList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../Icons/IconList */ "./resources/js/components/Icons/IconList.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-
-
-var SideMenu = function SideMenu() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      isOpen = _useState2[0],
-      setIsOpen = _useState2[1];
-
-  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props,
-      links = _usePage$props.links,
-      url = _usePage$props.url;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("aside", {
-    onMouseEnter: function onMouseEnter() {
-      return setIsOpen(true);
-    },
-    onMouseLeave: function onMouseLeave() {
-      return setIsOpen(false);
-    },
-    className: "aside-menu ".concat(isOpen ? 'is-open' : ''),
-    id: "side-nav",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("nav", {
-        className: "aside-menu__nav",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-          onClick: function onClick() {
-            return setIsOpen(!isOpen);
-          },
-          className: "aside-menu__burger",
-          children: isOpen ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Icons__WEBPACK_IMPORTED_MODULE_1__.IconClose, {
-            className: "text-19 text-white stroke-current"
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Icons__WEBPACK_IMPORTED_MODULE_1__.IconMenu, {
-            className: "text-19"
-          })
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("nav", {
-        className: "aside-menu-navigation__main",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
-          className: "aside-menu-navigation__list",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
-            className: "aside-menu-navigation__list-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("a", {
-              href: links.employee.index,
-              className: "aside-menu-navigation__anchor ".concat(url.current_uri === links.employee.index ? 'active' : ''),
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Icons__WEBPACK_IMPORTED_MODULE_1__.IconUsers, {
-                className: "text-22"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                className: "aside-menu-navigation__text",
-                children: "Employees"
-              })]
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
-            className: "aside-menu-navigation__list-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("a", {
-              href: links.shift.index,
-              className: "aside-menu-navigation__anchor ".concat(url.current_uri === links.employee.index ? 'active' : ''),
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Icons_IconList__WEBPACK_IMPORTED_MODULE_3__["default"], {
-                className: "text-22"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                className: "aside-menu-navigation__text",
-                children: "Shifts"
-              })]
-            })
-          })]
-        })
-      })]
-    })
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SideMenu);
-
-/***/ }),
-
-/***/ "./resources/js/components/Shared/ToastMessages.js":
-/*!*********************************************************!*\
-  !*** ./resources/js/components/Shared/ToastMessages.js ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_toast_notifications__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-toast-notifications */ "./node_modules/react-toast-notifications/dist/index.js");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-var ToastMessages = function ToastMessages() {
-  var flash = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.flash;
-
-  var _useToasts = (0,react_toast_notifications__WEBPACK_IMPORTED_MODULE_1__.useToasts)(),
-      addToast = _useToasts.addToast;
-
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (flash.success) {
-      addToast(flash.success, {
-        appearance: 'success'
-      });
-    }
-
-    if (flash.error) {
-      addToast(flash.error, {
-        appearance: 'error'
-      });
-    }
-  }, [flash]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {});
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ToastMessages);
-
-/***/ }),
-
 /***/ "./resources/js/components/Tooltip/ReactTooltip.js":
 /*!*********************************************************!*\
   !*** ./resources/js/components/Tooltip/ReactTooltip.js ***!
@@ -7886,10 +7663,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/domain/Employee/ImportList.js":
-/*!****************************************************!*\
-  !*** ./resources/js/domain/Employee/ImportList.js ***!
-  \****************************************************/
+/***/ "./resources/js/domain/Shift/RemoveShift.js":
+/*!**************************************************!*\
+  !*** ./resources/js/domain/Shift/RemoveShift.js ***!
+  \**************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -7898,11 +7675,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components */ "./resources/js/components/index.js");
-/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
+/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils/index.js");
-/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -7912,242 +7688,52 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-var ImportList = function ImportList(_ref) {
+var RemoveShift = function RemoveShift(_ref) {
   var cancelCallback = _ref.cancelCallback,
-      successCallback = _ref.successCallback;
+      successCallback = _ref.successCallback,
+      shiftId = _ref.shiftId;
 
-  var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_6__.useTranslation)(),
+  var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_5__.useTranslation)(),
       t = _useTranslation.t;
 
   var links = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.links;
-  var formRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(formik__WEBPACK_IMPORTED_MODULE_4__.Formik, {
-      innerRef: formRef,
-      initialValues: {},
-      enableReinitialize: true,
-      validate: function validate(values) {
-        var rules = {
-          file: 'required'
-        };
-        return (0,_utils__WEBPACK_IMPORTED_MODULE_3__.validateFormData)(values, rules);
+  var formData = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(function () {
+    return {
+      form: {
+        url: (0,_utils__WEBPACK_IMPORTED_MODULE_3__.route)(links.shift.destroy, {
+          shift: shiftId
+        }),
+        method: 'delete',
+        "class": 'form-class row'
       },
-      onSubmit: function onSubmit(values, _ref2) {
-        var setSubmitting = _ref2.setSubmitting,
-            setErrors = _ref2.setErrors;
-        var data = new FormData(); // eslint-disable-line
-
-        data.append('file', values.file);
-        _utils__WEBPACK_IMPORTED_MODULE_3__.api.post(links.employee["import"], data, {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
-        }).then(function (res) {
-          setSubmitting(false);
-          successCallback(res);
-        })["catch"](function (error) {
-          setSubmitting(false);
-        });
-      },
-      validateOnChange: false,
-      validateOnBlur: false,
-      children: function children(_ref3) {
-        var values = _ref3.values,
-            handleSubmit = _ref3.handleSubmit,
-            isSubmitting = _ref3.isSubmitting,
-            setFieldValue = _ref3.setFieldValue;
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          className: "form-container",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
-            onSubmit: handleSubmit,
-            className: "form-class row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-              className: "col-md-12",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.FileUpload, {
-                formField: {
-                  name: 'file',
-                  label: t('nft.import_modal.import_field'),
-                  placeholder: t('nft.import_modal.import_field'),
-                  accept: 'application/vnd.ms-excel, .xlsx, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-                },
-                value: values.file,
-                onChange: function onChange(e) {
-                  setFieldValue('file', e);
-                }
-              }, 'test_input')
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-              className: "form-footer form-footer-right col-md-12",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-                className: "btn btn-primary-ghost",
-                type: "button",
-                onClick: function onClick() {
-                  return cancelCallback();
-                },
-                children: t('ui.cancel')
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-                className: "btn btn-primary",
-                type: "submit",
-                disabled: isSubmitting,
-                children: t('ui.submit')
-              })]
-            })]
-          })
-        });
-      }
-    })
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImportList);
-
-/***/ }),
-
-/***/ "./resources/js/domain/Employee/Index.js":
-/*!***********************************************!*\
-  !*** ./resources/js/domain/Employee/Index.js ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _ImportList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImportList */ "./resources/js/domain/Employee/ImportList.js");
-/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components */ "./resources/js/components/index.js");
-/* harmony import */ var react_toast_notifications__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toast-notifications */ "./node_modules/react-toast-notifications/dist/index.js");
-/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils/index.js");
-/* harmony import */ var _components_Shared_Layout_Admin_LayoutAdmin__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/Shared/Layout/Admin/LayoutAdmin */ "./resources/js/components/Shared/Layout/Admin/LayoutAdmin.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-
-
-
-
-
-
-var Index = function Index() {
-  var links = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.usePage)().props.links;
-  var modalRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
-
-  var _useToasts = (0,react_toast_notifications__WEBPACK_IMPORTED_MODULE_3__.useToasts)(),
-      addToast = _useToasts.addToast;
-
-  var tableRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
-
-  var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_9__.useTranslation)(),
-      t = _useTranslation.t;
-
-  var columns = [{
-    id: 'full_name',
-    Header: t('fields.name'),
-    accessor: 'full_name',
-    name: 'full_name',
-    headerClassName: 'cell-width',
-    orderable: true,
-    disableSortBy: false,
-    searchable: false,
-    disableFilters: true,
-    search: {
-      value: '',
-      regex: 'true'
-    }
-  }, {
-    id: 'employer',
-    Header: 'Employer',
-    accessor: 'employer.name',
-    name: 'employer',
-    headerClassName: 'cell-width',
-    orderable: false,
-    disableSortBy: true,
-    searchable: false,
-    disableFilters: true,
-    search: {
-      value: '',
-      regex: 'true'
-    }
-  }];
-
-  var handleImportEmployees = function handleImportEmployees() {
-    var title = 'Import list of employees';
-
-    var body = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ImportList__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      cancelCallback: handleImportEmployeesCancelCallback,
-      successCallback: handleImportEmployeesSuccessCallback
-    });
-
-    modalRef.current.setContent(title, body);
-  };
-
-  var handleImportEmployeesCancelCallback = function handleImportEmployeesCancelCallback() {
-    modalRef.current.close();
-  };
-
-  var handleImportEmployeesSuccessCallback = function handleImportEmployeesSuccessCallback(res) {
-    addToast(res.data.message, res.data.appearance ? {
-      appearance: res.data.appearance
-    } : {
-      appearance: 'success'
-    });
-    modalRef.current.close();
-    tableRef.current.reload();
-  };
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Shared_Layout_Admin_LayoutAdmin__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-      className: "container mt-xxl",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-        className: "flex-space-between",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-          className: "pb-md",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h1", {
-            className: "pb-0 page-header",
-            children: "Employees"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-          onClick: function onClick() {
-            return handleImportEmployees();
-          },
-          type: "button",
-          className: "btn btn-primary mh-xs",
-          children: "Import File"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components__WEBPACK_IMPORTED_MODULE_2__.DataTable, {
-        ref: tableRef,
-        columns: columns,
-        fetchUrl: links.employee.get,
-        initialState: {
-          pageSize: 10,
-          sortBy: [{
-            id: 'full_name',
-            desc: true
-          }]
+      fields: [],
+      buttons: {
+        submit: {
+          text: t('ui.confirm')
         },
-        rowProps: {
-          onClick: function onClick(row) {
-            _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__.Inertia.visit((0,_utils__WEBPACK_IMPORTED_MODULE_6__.route)(links.employee.generalInfo, {
-              employee: row.original.id
-            }));
+        additional: [{
+          "class": 'btn btn-primary-ghost mr-1',
+          text: t('ui.cancel'),
+          type: 'button',
+          onClick: function onClick() {
+            cancelCallback();
           }
-        }
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components__WEBPACK_IMPORTED_MODULE_2__.ReactModal, {
-        ref: modalRef,
-        className: "ReactModal__Content--Medium"
-      })]
-    })
+        }]
+      }
+    };
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+      children: "Are you sure that you want to delete this shift?"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.FormBuilder, {
+      useInertia: false,
+      formData: formData,
+      successCallback: successCallback
+    })]
   });
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Index);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RemoveShift);
 
 /***/ }),
 
@@ -8805,4 +8391,4 @@ validatorjs_dist_validator_min__WEBPACK_IMPORTED_MODULE_0___default().register('
 /***/ })
 
 }]);
-//# sourceMappingURL=resources_js_domain_Employee_Index_js.js.map?id=cd98e11645585441
+//# sourceMappingURL=resources_js_domain_Shift_RemoveShift_js.js.map?id=8958bc9806dece81

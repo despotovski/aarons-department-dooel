@@ -13,6 +13,13 @@ class EmployeeReactLinks
                 'index' => route('employee.index'),
                 'generalInfo' => route('employee.show', ['employee' => '%employee%']),
                 'getEmployeePayments' => route('employee.payments', ['employee' => '%employee%'])
+            ],
+            'shift' => [
+                'index' => route('shift.index'),
+                'get' => route('shift.get'),
+                'create' => route('shift.create'),
+                'store' => route('shift.store'),
+                'destroy' => route('shift.destroy', ['shift' => '%shift%'])
             ]
         ];
     }

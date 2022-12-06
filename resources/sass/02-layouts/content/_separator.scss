@@ -1,0 +1,31 @@
+@mixin createSeparator($height, $margin, $bg) {
+  width: 100%;
+  margin-top: calc-rem($margin);
+  margin-bottom: calc-rem($margin);
+  height: $height;
+  background-color: $bg;
+}
+
+.separator {
+  &__primary {
+    @include createSeparator(1px, 10px, $color-primary);
+  }
+
+  &__dark {
+    @include createSeparator(1px, 10px, lighten(desaturate($color-blue-dark-2, 7.02), 0.98));
+  }
+
+  &__disabled {
+    @include createSeparator(1px, 10px, $color-disabled);
+  }
+
+  &__lg {
+    margin-top: calc-rem(24px);
+    margin-bottom: calc-rem(24px);
+  }
+
+  &__xxl {
+    margin-top: calc-rem(44px);
+    margin-bottom: calc-rem(44px);
+  }
+}

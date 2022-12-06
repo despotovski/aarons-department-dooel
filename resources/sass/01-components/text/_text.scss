@@ -1,0 +1,154 @@
+@each $name,
+$color in ($colors) {
+  .text-#{$name} {
+    color: $color !important;
+  }
+
+  .fill-#{$name} {
+    fill: $color;
+  }
+}
+
+@each $name,
+$size in ($text-size) {
+  .text-#{$name} {
+    font-size: $size !important;
+    line-height: calc($size + ($size / 2)) !important;
+  }
+}
+
+p {
+  font-family: inherit;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 26px;
+  font-size: 16px;
+  color: $color-gray-1;
+
+  @media screen and (max-width:$breakpoint-tablet) {
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+
+.text {
+  &-regular {
+    font-weight: 400;
+  }
+
+  &-medium {
+    font-weight: 500;
+  }
+
+  &-bold {
+    font-weight: 700;
+  }
+
+  &-uppercase {
+    text-transform: uppercase;
+  }
+
+  &-right {
+    text-align: right;
+  }
+
+  &-center {
+    text-align: center;
+  }
+
+  &-underline {
+    text-decoration: underline;
+  }
+
+  &-italic {
+    font-style: italic;
+  }
+
+  &-wrap {
+    overflow-wrap: break-word;
+  }
+}
+
+.fill{
+  transition: all .3s ease;
+  &-white {
+    fill: $color-white;
+  }
+
+  &-black {
+    fill: $color-black;
+  }
+
+  &-primary {
+    fill: $color-primary;
+  }
+
+  &-gray {
+    fill: $color-gray-2;
+  }
+}
+
+a {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+.input-error-message {
+  font-family: $font-poppins;
+  font-size: calc-rem(10px);
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  color: $color-red-1;
+  margin-top: 5px;
+
+  a {
+    font-size: calc-rem(12px);
+    color: $color-red-1;
+    text-decoration: underline;
+  }
+}
+
+.page-header {
+  color: $color-primary;
+}
+
+.text-link {
+  text-decoration: underline;
+  color: $color-primary;
+
+  &:hover {
+    color: $color-green-dark-1;
+  }
+}
+
+small {
+  font-size: calc-rem(12px);
+  line-height: 1;
+}
+
+.word-break-all {
+  word-break: break-all;
+}
+
+.ellipsis {
+  &__line {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__row {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+
+    &--2 {
+      -webkit-line-clamp: 2;
+    }
+  }
+}

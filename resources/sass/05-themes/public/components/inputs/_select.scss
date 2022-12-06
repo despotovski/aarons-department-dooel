@@ -1,0 +1,30 @@
+.auth-page,
+.public-page {
+  .select-custom-input {
+    .select {
+      &__control {
+        border-width: 1px;
+        border-radius: $border-radius-md;
+        font: 500 calc-rem(16px) $font-avenir;
+    
+        &--menu-is-open {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+      }
+    
+      &__placeholder {
+        font-weight: 500;
+      }
+    
+      &__menu {
+        border-width: 1px;
+      }
+    
+      &__option {
+        font-size: calc-rem(16px);
+        padding: calc-rem(16px);
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+body {
+  font-family: $font-poppins;
+  font-weight: normal;
+  box-sizing: border-box;
+  color: $color-gray-1;
+
+  * {
+      box-sizing: border-box;
+  }
+
+  #main-layout {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-top: calc-rem(20px);
+    min-height: 100vh;
+    @include transition(margin-top, .25s);
+
+    @media screen and (max-width:$breakpoint-tablet) {
+      padding-top: calc-rem(50px);
+    }
+  }
+}

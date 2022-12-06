@@ -1,0 +1,9 @@
+label{
+  font-weight: 700;
+  font-size: calc-rem(12px);
+  line-height: calc-rem(22px);
+  text-transform: none;
+  color: $color-primary;
+  display: inline-block;
+  padding: calc-rem(8px) calc-rem(8px) calc-rem(8px) 0;
+}

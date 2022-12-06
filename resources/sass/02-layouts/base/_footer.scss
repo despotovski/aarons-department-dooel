@@ -1,0 +1,123 @@
+.footer {
+  padding: calc-rem(80px) 0;
+  background-color: darken($color-green-dark-1, 11.57);
+  width: 100%;
+
+  &__branding-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .branding {
+      &__mark {
+        width: calc-rem(83px);
+      }
+
+      &__wordmark {
+        font-size: calc-rem(36px);
+        line-height: calc-rem(44px);
+      }
+
+      &__tagline {
+        font-size: calc-rem(10px);
+        line-height: calc-rem(13px);
+      }
+    }
+  }
+
+  &__copyrights {
+    margin-top: auto;
+
+    &--mobile {
+      @extend .footer__copyrights;
+      display: none;
+      margin-top: calc-rem(40px);
+    }
+
+    p {
+      font-family: $font-montserrat;
+      font-weight: 400;
+      color: $color-white;
+      font-size: calc-rem(14px);
+    }
+  }
+
+  &__links {
+    margin-top: calc-rem(64px);
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    h4 {
+      color: $color-green-2;
+      margin-bottom: calc-rem(32px);
+    }
+
+    .list li {
+      margin: calc-rem(10px) 0;
+      color: $color-white;
+      font-family: $font-montserrat;
+      font-weight: 600;
+
+      &:hover {
+        color: $color-green-2;
+      }
+
+    }
+
+    &-social {
+      margin: 0 calc-rem(-5px);
+
+      li {
+        width: calc-rem(36px);
+        margin: 0 calc-rem(5px);
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    &__copyrights,
+    &__copyrights--mobile {
+      p {
+        font-size: calc-rem(12px);
+        line-height: calc-rem(16px);
+      }
+    }
+
+    &__branding-wrapper {
+      .branding {
+        &__mark {
+          width: calc-rem(58px);
+        }
+  
+        &__wordmark {
+          font-size: calc-rem(25px);
+          line-height: calc-rem(30px);
+        }
+  
+        &__tagline {
+          font-size: calc-rem(7px);
+          line-height: calc-rem(9px);
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: calc-rem(32px) calc-rem(12px);
+
+    &__links,
+    &__links:first-child  {
+      margin-top: calc-rem(44px);
+    }
+
+    &__copyrights {
+      display: none;
+
+      &--mobile {
+        display: block;
+      }
+    }
+  }
+}

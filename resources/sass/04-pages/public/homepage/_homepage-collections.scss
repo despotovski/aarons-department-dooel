@@ -1,0 +1,42 @@
+.homepage {
+  &__collections {
+    background-color: darken($color-blue-dark-2, 1.76);
+    text-align: center;
+    padding: calc-rem(70px) 0 calc-rem(100px);
+
+    h2 {
+      margin-bottom: calc-rem(70px);
+    }
+
+    &-slick {
+      margin-bottom: calc-rem(90px);
+    }
+
+    @include media-breakpoint-down(md) {    
+      padding: calc-rem(46px) 0;
+  
+      h2 {
+        margin-bottom: calc-rem(40px);
+      }
+  
+      &-slick {
+        margin-bottom: calc-rem(60px);
+      }
+  
+      .slick {
+        &-dots {
+          bottom: calc-rem(-44px);
+        }
+      }
+    }
+
+    @include media-breakpoint-down(xs) {
+      padding: calc-rem(30px) calc-rem(24px);
+
+      h2 {
+        font-size: calc-rem(20px);
+        margin-bottom: calc-rem(30px);
+      }      
+    }
+  }
+}

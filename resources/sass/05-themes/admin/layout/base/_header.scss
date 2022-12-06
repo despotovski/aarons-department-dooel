@@ -1,0 +1,21 @@
+@use "sass:map";
+
+.admin-page {
+  header {
+    .container{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: calc-rem(30px);
+      padding-left: 0;
+      padding-right: 0;
+      width: calc(100% - $grid-gutter-width);
+      max-width: calc(map.get($container-max-widths, 'xl') - $grid-gutter-width);
+      border-bottom: 1px solid $color-primary;
+
+      &::after{
+          display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,110 @@
+.about {
+  &__section {
+    h2.public-h2 {
+      font-size: calc-rem(48px);
+      letter-spacing: -1.2px;
+      line-height: calc-rem(46px);
+      margin-bottom: calc-rem(48px);
+    }
+
+    h3.public-h3,
+    .list__cubes li {
+      font-size: calc-rem(20px);
+      font-weight: 400;
+      line-height: calc-rem(36px);
+      color: $color-white;
+
+      &::before {
+        width: calc-rem(20px);
+        height: calc-rem(20px);
+      }
+    }
+  }
+
+  &__side-image {
+    height: 100%;
+    display: flex;
+    
+    img {
+      height: auto;
+    }
+    
+    &.left {
+      align-items: center;
+    }
+    
+    &.right {
+      margin-right: calc-rem(-66px);
+      margin-left: calc-rem(-140px);
+      align-items: flex-end;
+    }
+  }
+
+  &__banner {
+    &-head {
+      h3.public-h3 {
+        font-size: calc-rem(24px);
+      }
+    }
+
+    &-image {
+      position: absolute;
+      margin-left: calc-rem(-170px);
+      margin-right: calc-rem(-46px);
+    }
+
+    &-cards {
+      .block__dark-green {
+        display: flex;
+        flex-direction: column;
+        margin: calc-rem(20px) 0;
+        height: calc(100% - calc-rem(40px));
+
+        p {
+          margin-top: auto;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    &__section {
+      h2.public-h2 {
+        font-size: calc-rem(36px);
+        line-height: calc-rem(44px);
+        margin-bottom: calc-rem(32px);
+      }
+
+      h3.public-h3,
+      .list__cubes li {
+        font-size: calc-rem(20px);
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__section {
+      h2.public-h2 {
+        font-size: calc-rem(28px);
+        line-height: calc-rem(32px);
+        margin-bottom: calc-rem(24px);
+      }
+
+      h3.public-h3,
+      .list__cubes li {
+        font-size: calc-rem(16px);
+        line-height: calc-rem(24px);
+      }
+    }
+
+    &__side-image {
+      &.right {
+        margin: 0;
+      }
+      
+      &.left {
+        margin-bottom: calc-rem(64px);
+      }
+    }
+  }
+}

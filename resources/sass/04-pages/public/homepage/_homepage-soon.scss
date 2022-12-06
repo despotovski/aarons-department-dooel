@@ -1,0 +1,34 @@
+// TODO: fix these important things
+.homepage__soon {
+  .slick-slide {
+    margin-bottom: calc-rem(24px);
+  }
+
+  .card {
+    width: calc(100% / 4 - 20px) !important;
+    margin-left: calc-rem(10px);
+    margin-right: calc-rem(10px);
+	}
+
+  @include media-breakpoint-down(md) {
+    .card {
+      width: calc(100% / 3 - 20px) !important;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    .card {
+      width: calc(100% / 2 - 20px) !important;
+    }
+  }
+
+  @include media-breakpoint-down(xs) {
+    padding-bottom: calc-rem(62px);
+
+    .card {
+      width: calc(100% - 20px) !important;
+      margin-left: calc-rem(10px) !important;
+      margin-right: calc-rem(10px) !important;
+    }
+  }
+}

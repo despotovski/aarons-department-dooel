@@ -1,0 +1,174 @@
+.auth-page {
+  position: relative;
+  justify-content: center;
+  padding-top: 0 !important;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: $auth-bg-gradient;
+  font-family: $font-avenir;
+  
+  .mock-tab {
+    color: $color-blue-dark-2;
+    font-size: calc-rem(26px);
+    line-height: calc-rem(32px);
+
+    &::after {
+      bottom: calc-rem(-12px);
+    }
+  }
+
+  &__validation {
+    text-align: center;
+    width: 80%;
+    margin: calc-rem(80px) auto;
+    max-width: calc-rem(450px);
+
+    &-icon {
+      width: calc-rem(136px);
+      margin: calc-rem(100px) auto calc-rem(60px);
+    }
+
+    .admin-h3 {
+      position: relative;
+      color: $color-blue-dark-2;
+      font-size: calc-rem(26px);
+      letter-spacing: -0.43px;
+      line-height: calc-rem(32px);
+      margin-bottom: calc-rem(40px);
+
+      &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: calc-rem(80px);
+        height: calc-rem(5px);
+        background: $color-primary;
+        bottom: calc-rem(-25px);
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    .admin-h4 {
+      font-size: calc-rem(20px);
+      line-height: calc-rem(24px);
+      letter-spacing: -0.11px;
+      margin: calc-rem(18px) 0;
+    }
+
+    p {
+      font-size: calc-rem(18px);
+      letter-spacing: -0.1px;
+      line-height: calc-rem(24px);
+      color: $color-blue-dark-2;
+    }
+  }
+  
+  .auth-container {
+    background-color: $color-white;
+    border-radius: $border-radius ;
+    overflow: hidden;
+  
+    &__main,
+    &__decoration {
+      padding: calc-rem(64px) calc-rem(55px);
+    }
+    
+    &__main {
+      // margin-right: calc-rem(-12px);
+  
+      &--login {
+        padding-right: calc-rem(160px);
+      }
+    }
+  
+    &__decoration {
+      position: relative;
+      height: 100%;
+      background: url('../../../assets/images/public/background-login.jpg') no-repeat center center;
+      background-size: cover;
+  
+      .mock-tab {
+        color: $color-white;
+  
+        &::after {
+          background-color: $color-green-2;
+        }
+      }
+  
+      p {
+        font-weight: 500;
+        color: $color-white;
+        margin: calc-rem(20px) 0;
+      }
+  
+      h4 {
+        color: $color-green-2;
+        font-size: calc-rem(18px);
+        letter-spacing: -0.1px;
+        line-height: calc-rem(26px);
+      }
+  
+      ul {
+        list-style: none;
+        color: $color-white;
+  
+        li {
+          margin: calc-rem(16px) 0;
+        }
+      }
+    }
+  
+    &__password-info.input-element {
+      flex-direction: row;
+  
+      .svg-inline {
+        font-size: calc-rem(9px);
+        margin-top: calc-rem(4px);
+      }
+  
+      p {
+        color: $color-primary;
+        font-size: calc-rem(14px);
+        line-height: calc-rem(18px);
+        margin-bottom: calc-rem(14px);
+        padding-left: calc-rem(10px);
+      }
+    }
+  
+    .branding {
+      &__mark {
+        width: calc-rem(200px);
+      }
+  
+      &__moto {
+        font-size: calc-rem(16px);
+        margin-bottom: calc-rem(6px);
+      }
+    }
+  
+    @media screen and (max-width: $breakpoint-tablet) {
+      &__main--login {
+        padding-right: calc-rem(55px);
+        margin-right: 0;
+      }
+
+      &__main {
+        padding: calc-rem(48px) calc-rem(24px);
+      }
+
+      &__decoration {
+        padding: calc-rem(48px) calc-rem(36px);
+
+        p, ul li {
+          margin: calc-rem(10px) 0;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding-left: calc-rem(24px);
+    padding-right: calc-rem(24px);
+  }
+}

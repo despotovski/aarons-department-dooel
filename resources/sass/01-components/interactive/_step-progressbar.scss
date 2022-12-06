@@ -1,0 +1,132 @@
+// basic config
+$step-width : calc-rem(48px);
+$step-height : calc-rem(48px);
+$step-color: $color-white;
+$step-background: lighten($color-black, 70%);
+$step-color-active: $color-white;
+$step-background-active: $color-primary;
+
+.step-progressbar {
+    list-style: none;
+    counter-reset: step;
+    display: flex;
+    padding: 0;
+
+    .step {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        text-align: center;
+        position: relative;
+
+        &:before {
+            width: $step-width;
+            height: $step-height;
+            content: counter(step);
+            counter-increment: step;
+            align-self: center;
+            background: $step-background;
+            color: $step-color;
+            border-radius: 100%;
+            line-height: calc-rem(48px);
+            margin-bottom: calc-rem(8px);
+        }
+
+        &:after {
+            height: 2px;
+            width: calc(100% - 70px);
+            content: '';
+            background: lighten($color-black, 70%);
+            position: absolute;
+            top: calc-rem(24px);
+            left: calc(50% + 35px);
+        }
+
+        &:last-child {
+            &:after {
+                content: none;
+            }
+        }
+
+        &.active {
+            &:before {
+                background: $step-background-active;
+                color: $step-color-active;
+            }
+        }
+
+        &.complete {
+            &:before {
+                content: '✔';
+            }
+        }
+    }
+}
+
+
+.progress-steps{
+    display: flex;
+    color: $color-primary;
+    font-weight: 600;
+    font-size: 1rem;
+    justify-content: space-evenly;
+    position: relative;
+    padding-bottom: 20px;
+    &::before{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 6px;
+        bottom: -10px;
+        background-color: $color-light-gray-2;
+    }
+    li{
+        list-style: none;
+        padding: 20px 20px 0;
+        flex: 1;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        &::before{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 6px;
+            left: -50%;
+            bottom: -30px;
+            background-color: $color-light-gray-2;
+        }
+        &::after{
+            content: '\2022';
+            position: absolute;
+            left: calc(50% - 12px);
+            bottom: -27px;
+            width: 3px;
+            height: 100%;
+            font-size: 3.5rem;
+            z-index: 9;
+            color: $color-light-gray-2;;
+        }
+        &:first-child{
+            &::before{
+                left: 0%;
+                width: 50%;
+            }
+        }
+        &:last-child{
+            &::before{
+                left: -50%;
+                width: 150%;
+            }
+        }
+        &.active, &.completed{
+            &::before{
+                background-color: $color-secondary;
+            }
+            &::after{
+                color:$color-secondary;
+            }
+        }
+    }
+    
+}

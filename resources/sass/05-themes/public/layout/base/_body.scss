@@ -1,0 +1,16 @@
+#main-layout.public-page {
+  font-family: $font-avenir;
+  background-color: $color-primary-table-border;
+  padding-top: 0;
+  overflow-anchor: none; // to prevent flicker (scrollbar is repositioning) on expandable sticky elements when scrolling
+}
+
+#main-layout.aux-page {
+  background-color: $color-blue-dark-2;
+}
+
+body {
+  &.body__menu--opened {
+    overflow: hidden;
+  }
+}

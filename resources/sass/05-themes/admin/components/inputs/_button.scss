@@ -1,0 +1,8 @@
+.admin-page {
+  button, a {    
+    &.btn-primary-ghost:hover {
+      color: darken($color-primary, 10%);
+      border-color: darken($color-primary, 10%);
+    }
+  }
+}

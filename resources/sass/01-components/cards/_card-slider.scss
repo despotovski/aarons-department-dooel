@@ -1,0 +1,87 @@
+.card__slider {
+	margin-top: 0;
+	margin-bottom: 0;
+
+	.card {
+    &:hover {
+      box-shadow: none;
+    }
+
+		&__hover-content {
+			text-align: left;
+      background-color: rgba($color-blue-dark-2, .5);
+      backdrop-filter: blur(2px);
+
+			h3 {
+				font-size: calc-rem(32px);
+				line-height: calc-rem(40px);
+				color: $color-white;
+				letter-spacing: -0.2px;
+				margin-bottom: calc-rem(10px);
+				max-width: calc-rem(400px);
+				font-weight: 600;
+			}
+
+			p {
+				font-size: calc-rem(18px);
+				line-height: calc-rem(25px);
+				color: $color-green-2;
+			}
+
+			.card {
+				background: transparent;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				margin: 0;
+				padding: calc-rem(16px);
+
+				&__footer {
+					margin-top: auto;
+					padding-top: calc-rem(22px);
+				}
+			}
+
+      .card__slider-nft {
+        display: flex;
+    
+        &-info {
+          text-align: right;
+          margin-left: auto;
+          
+          h5, p {
+            font-family: $font-recoleta;
+            font-size: calc-rem(16px);
+            line-height: calc-rem(22px);
+          }
+          h5 {
+            color: $color-primary;
+          }
+          
+          p {
+            color: $color-white;
+          }
+        }
+      }
+		}
+	}
+
+	.badge {
+		&__thumbnail {
+			width: calc-rem(42px);
+			height: calc-rem(42px);
+			margin-right: calc-rem(16px);
+		}
+
+		h5.public-h5 {
+			color: $color-white;
+			font-size: calc-rem(16px);
+			margin-bottom: calc-rem(2px);
+		}
+
+		p {
+			font-size: calc-rem(16px);
+			color: $color-primary;
+		}
+	}
+}

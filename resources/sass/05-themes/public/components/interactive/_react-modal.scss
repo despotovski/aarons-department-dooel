@@ -1,0 +1,48 @@
+.public-page {
+  .ReactModal {
+    &__Overlay {
+      background-color: transparent;
+    }
+  }
+
+  &.ReactModal__Cookies {
+    .form {
+      &-container {
+        .input-checkbox {
+          &:first-child {
+            margin-top: 0;
+          }
+
+          h5 {
+            color: $color-primary;
+            font-family: $font-avenir;
+            font-weight: 600;
+            margin-bottom: calc-rem(16px);
+          }
+
+          p {
+            font-size: calc-rem(12px);
+            font-family: $font-avenir;
+          }
+
+          input[type="checkbox"] + label {
+            &::before {
+              top: calc-rem(10px);
+            }
+
+            &::after {
+              top: calc-rem(12px);
+            }
+          }
+        }
+      }
+
+      &-footer {
+        justify-content: flex-end;
+        margin-top: calc-rem(26px);
+        padding-top: 0;
+        border: none;
+      }
+    }
+  }
+}

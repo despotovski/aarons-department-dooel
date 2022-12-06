@@ -1,0 +1,45 @@
+.card__business {
+  margin: calc-rem(15px);
+  max-width: calc(20% - calc-rem(30px));
+  min-width: calc-rem(215px);
+  background-color: lighten(desaturate($color-green-1, 25.89), 22.16);
+  
+  .card {
+    &__title,
+    &__subtitle {
+      color: $color-blue-dark-2;
+      text-align: center;
+    }
+
+    &__title {
+      font-size: calc-rem(16px);
+    }
+
+    &__subtitle {
+      font-weight: 500;
+      font-size: calc-rem(12px);
+    }
+
+    &__body {
+      margin-bottom: 0;
+    }
+
+    &__thumbnail--circle {
+      background: $color-white;
+      box-shadow: none;
+
+      &-wrapper {
+        width: calc-rem(100px);
+      }
+    }
+
+    &__logo {
+      width: calc-rem(32px);
+      margin: calc-rem(36px) auto 0;
+    }
+  }
+
+  @include media-breakpoint-down(xs) {
+    max-width: 100%;
+  }
+}

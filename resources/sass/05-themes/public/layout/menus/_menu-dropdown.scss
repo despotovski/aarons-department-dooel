@@ -1,0 +1,15 @@
+.public-page {
+  .dropdown {
+    &__menu {
+      li {
+        font-family: $font-avenir;
+        text-transform: initial;
+        color: $color-blue-dark-2;
+    
+        &:hover {
+          color: $color-primary;
+        }
+      }
+    }
+  }
+}

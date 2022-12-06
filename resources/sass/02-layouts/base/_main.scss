@@ -1,0 +1,22 @@
+@use 'sass:map';
+
+main {
+  flex: 1;
+
+  @include media-breakpoint-down(sm) {
+    padding: 0 1.5rem;
+
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.mainLayout {
+  padding-left: calc-rem(72px);
+
+  @include media-breakpoint-down(md) {
+    padding-left: 0;
+  }
+}

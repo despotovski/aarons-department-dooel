@@ -1,0 +1,80 @@
+.landing {
+  &__page {
+    background: $auth-bg-gradient;
+
+    .btn-landing {
+      margin-top: calc-rem(52px);
+    }
+  }
+
+  &__header {
+    background-color: darken(adjust-hue($color-blue-dark-2, 1), 6.27);
+
+    &-message {
+      text-align: right;
+      width: 60%;
+    }
+
+    .header__top {
+      align-items: center;
+    }
+  }
+  
+  &__main {
+    padding: calc-rem(60px) 0 calc-rem(80px);
+
+    h2 {
+      margin-bottom: calc-rem(32px);
+    }
+
+    p {
+      color: $color-white;
+      margin-top: calc-rem(24px);
+      font-size: calc-rem(20px);
+      line-height: calc-rem(28px);
+      letter-spacing: -0.4px;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    &__header {
+      .branding {
+        margin: 0;
+      }
+    }
+
+    &__main {
+      padding: calc-rem(30px) 0;
+
+      h2 {
+        margin-bottom: calc-rem(16px);
+      }
+
+      p {
+        font-size: calc-rem(16px);
+        margin-top: calc-rem(10px);
+      }
+    }
+
+    &__mission {
+      margin-top: calc-rem(36px);
+    }
+  }
+
+  @include media-breakpoint-down(xs) {
+    &__header {
+      .header__top {
+        flex-direction: column;
+      }
+
+      .branding {
+        margin: 0 auto calc-rem(30px);
+      }
+
+      &-message {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,137 @@
+button.menu__burger {
+  display: none;
+  margin: calc-rem(16px) 0;
+  max-width: 100%;
+  line-height: calc-rem(18px);
+  @extend .btn-primary-ghost;
+  @extend .btn-icon-center;
+  min-width: unset;
+  height: calc-rem(44px);
+  padding: calc-rem(4px);
+
+  .svg-inline {
+    font-size: calc-rem(15px);
+    vertical-align: calc-rem(-3px);
+    fill: $color-white;
+  }
+
+  @include media-breakpoint-down(lg) {
+    display: block;
+    font-size: calc-rem(16px);
+  }
+}
+
+.menu {
+  &__primary {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: darken($color-blue-dark-2, 1.76);
+    overflow-y: auto;
+    @include transition(top, .25s);
+    z-index: 100;
+
+    &--opened {
+      top: 0;
+    }
+  }
+
+  &__heading {
+    color: $color-white;
+    font-size: calc-rem(24px);
+    line-height: calc-rem(32px);
+    letter-spacing: -.3px;
+  }
+
+  &__list > li {
+    list-style: none;
+    border-top: 1px solid lighten($color-blue-dark-2, 6.47);
+    padding: calc-rem(15px) 0;
+    margin: 0;
+
+    &:last-child {
+      border-bottom: 1px solid lighten($color-blue-dark-2, 6.47);
+    }
+  }
+
+  &__link-more {
+    font-size: calc-rem(14px);
+    line-height: calc-rem(21px);
+    font-weight: 500;
+    color: $color-green-2;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__auth {
+    display: none;
+    background-color: darken($color-blue-dark-2, 4.71);
+    margin-top: auto;
+
+    > .container {
+      padding-bottom: calc-rem(20px);
+    }
+
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      margin: 0 calc-rem(-5px);
+    }
+
+    &-item {
+      margin: 0 calc-rem(5px);
+      flex: 1;
+    }
+
+    &-wallet {
+      flex: 0;
+    }
+
+    &-lang {
+      max-width: calc-rem(90px);
+    }
+  }
+
+  &__slider {
+    padding-bottom: calc-rem(24px);
+
+    .slick-slider.slick-centered {
+      margin: 0 calc($grid-gutter-width * -1.33);
+    }
+
+    .slick-dots {
+      bottom: calc-rem(-16px);
+    }
+
+    .card {
+      &__body {
+        margin: calc-rem(16px) 0 0;
+        max-height: calc-rem(22px);
+      }
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    &__auth {
+      display: block;
+    }
+  }
+  
+  @include media-breakpoint-down(sm) {
+    &__slider {
+      .slick-slider.slick-centered {
+        margin: 0 -#{$grid-gutter-width};
+      }
+    }
+  }
+}

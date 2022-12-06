@@ -1,0 +1,16 @@
+.filter-search {
+    position: relative;
+
+    .icon-search {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.3rem;
+      pointer-events: none;
+      
+      path {
+        fill: $color-primary;
+      }
+    }
+}

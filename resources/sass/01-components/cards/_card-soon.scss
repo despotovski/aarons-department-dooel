@@ -1,0 +1,5 @@
+.card__soon {
+  @extend %card-horizontal-thumbnail;
+  display: inline-flex !important;
+  padding: calc-rem(20px) calc-rem(24px);
+}

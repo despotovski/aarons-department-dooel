@@ -1,0 +1,30 @@
+.svg-inline {
+  display: inline-block;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+
+.fill-current {
+  fill: currentColor;
+}
+
+.fill-secondary {
+  fill: $color-secondary;
+}
+
+.stroke-current {
+  stroke: currentColor;
+}
+
+.stroke-secondary{
+  stroke: $color-secondary;
+}
+
+.icon-chevron-down {
+  transform: rotate(180deg);
+}
+
+.svg-inline-center {
+  vertical-align: 0.250em !important;
+}

@@ -1,0 +1,17 @@
+.section {
+  &__bg {
+    z-index: 0;
+
+    &,
+    img,
+    &::before,
+    &::after {
+      @include absolute-fullsize();
+    }
+
+    &::before,
+    &::after {
+      content: '';
+    }
+  }
+}

@@ -1,0 +1,71 @@
+$color-black: #000000;
+$color-white: #ffffff;
+
+$color-green-1: #00A8AD;
+$color-green-2: #07F8FF;
+$color-green-3: #5ec78c;
+$color-green-dark-1: darken(adjust-hue($color-green-1, 1), 18.43);
+$color-green-dark-2: #14625F;
+
+$color-red-1: #D53E2A;
+
+$color-blue-dark: #22273A;
+$color-blue-dark-1: #0A2939;
+$color-blue-dark-2: #003234;
+$color-blue-light: #269EC8;
+
+$color-gray-1: #4d535b;
+$color-gray-2: #929292;
+$color-dark-gray:#011;
+$color-light-gray:#C9CBCE;
+$color-light-gray-2: #eaeaea;
+
+$color-disabled: darken($color-light-gray-2, 7.06);
+
+$color-platinum: #B0AAA1;
+$color-gold: #DB9300;
+$color-silver: #89BBC8;
+$color-bronze: #7C6433;
+
+$color-primary: $color-green-1;
+$color-primary-table-border: $color-light-gray-2;
+
+$color-secondary: $color-blue-dark-1;
+$color-secondary-hover:darken($color-blue-dark-1, 10%);
+$color-secondary-disabled: lighten($color-blue-dark-1, 20%);
+
+$auth-bg-gradient: linear-gradient(146.47deg, #001112 0%, darken($color-blue-dark-2, 1.76) 100%);
+
+// information
+$color-error: $color-red-1;
+$color-warning: $color-secondary;
+$color-success: $color-green-3;
+$color-info: $color-blue-light;
+
+$colors: (
+  primary: $color-primary,
+  secondary: $color-secondary,
+  'black': $color-black,
+  'white': $color-white,
+  error: $color-error,
+  warning: $color-warning,
+  success: $color-success,
+  info: $color-info,
+  error-red: $color-red-1,
+  dark-green: $color-green-dark-1,
+  light-green-1: $color-green-1,
+  light-green-2: $color-green-2,
+  dark-blue-2: $color-blue-dark-2,
+  'platinum': $color-platinum,
+  'gold': $color-gold,
+  'silver': $color-silver,
+  'bronze': $color-bronze,
+  'gray': $color-gray-2
+);
+
+$colors-message: (
+  error: $color-error,
+  warning: $color-warning,
+  success: $color-success,
+  info: $color-info,
+);

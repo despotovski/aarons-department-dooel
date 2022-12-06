@@ -1,0 +1,247 @@
+/* purgecss start ignore */
+
+.accordion {
+    border-radius: calc-rem(6px);
+
+    &-wrapper {
+        margin: calc-rem(40px) 0;
+        width: 100%;
+    }
+    
+    &__button {
+        position: relative;
+        color: #001524;
+        padding: calc-rem(8px) 0;
+        width: 100%;
+        font-size: calc-rem(14px);
+        font-weight: 400;
+        text-align: left;
+        @include transition(color, .25s);
+        cursor: pointer;
+
+        .svg-inline {
+            margin-right: 1rem;
+            margin-bottom: calc-rem(-2px);
+            font-size: calc-rem(20px);
+        }
+        
+        &.open + .collapse-css-transition {
+            height: auto !important;
+        }
+
+        &:hover {
+            font-weight: 700;
+        }
+    }
+    
+    &__panel {
+        padding: calc-rem(20px);
+        animation: fadein 0.35s ease-in;
+    }
+
+    &__body {
+        margin: calc-rem(8px) 0 calc-rem(8px) calc-rem(36px);
+    }
+
+    &--lg {
+        .accordion__button {
+            font-size: calc-rem(18px);
+
+            .svg-inline {
+                margin-bottom: calc-rem(-1px);
+            }
+        }
+    }
+
+    &--xl {
+        .accordion__button {
+            font-size: calc-rem(22px);
+            line-height: calc-rem(28px);
+
+            .svg-inline {
+                margin-bottom: calc-rem(-1px);
+            }
+        }
+    }
+
+    &__stacks {
+        border-top: 1px solid $color-white;
+        border-radius: 0;
+
+        &:last-child {
+            border-bottom: 1px solid $color-white;
+        }
+
+        .accordion {
+            &__button {
+                position: relative;
+                color: $color-white;
+                padding: calc-rem(22px) calc-rem(32px) calc-rem(22px) 0;
+    
+                .svg-inline {
+                    position: absolute;
+                    right: calc-rem(-16px);
+                    top: calc-rem(16px);
+                    font-size: calc-rem(40px);
+                }
+
+                &:hover {
+                    font-weight: 400;
+                    color: $color-green-2;
+                }
+            }
+
+            &__body {
+                padding-bottom: calc-rem(20px);
+            }
+        }
+    }
+
+    &__blocks {
+        background-color: darken(adjust-hue($color-primary, 1), 18.43);
+        border-radius: $border-radius;
+        margin: calc-rem(30px) 0;
+        padding: calc-rem(30px);
+
+        .accordion {
+            &__button {
+                display: flex;
+                align-items: center;
+                color: $color-green-2;
+                font-weight: 700;
+                line-height: calc-rem(25px);
+
+                .svg-inline {
+                    font-size: calc-rem(12px);
+                    margin-right: 0;
+                    margin-left: auto;
+                }
+            }
+
+            &__body {
+                margin-left: 0;
+            }
+        }
+    }
+
+    &__aside {
+        .accordion {
+            &__button {
+                font-size: calc-rem(16px);
+                font-weight: 700;
+                color: $color-blue-dark-2;
+
+                &.open {
+                    color: $color-primary;
+                }
+
+                &:hover {
+                    color: $color-primary;
+                }
+            }
+
+            &__body {
+                margin-left: 0;
+
+                li {
+                    margin: calc-rem(4px) 0;
+                }
+            }
+        }
+
+        &--second {
+            .accordion {
+                &__button {
+                    color: lighten(adjust-hue($color-blue-dark-2, 1), 5.29);
+                    font-size: calc-rem(14px);
+                    padding: calc-rem(4px) 0;
+                    font-weight: 600;
+
+                    &.open {
+                        color: lighten(adjust-hue($color-blue-dark-2, 1), 5.29);
+                    }
+                }
+
+                &__body {
+                    margin-left: calc-rem(16px);
+
+                    li {
+                        color: lighten(adjust-hue($color-blue-dark-2, 1), 5.29);
+                        font-weight: 400;
+                        font-size: calc-rem(12px);
+                        cursor: pointer;
+
+                        &:hover {
+                            color: $color-primary;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        &__stacks {
+            &.accordion--xl {
+                .accordion {
+                    &__button {
+                        font-size: calc-rem(20px);
+                        line-height: calc-rem(28px);
+                    }
+                }
+            }
+        }
+    }
+
+    @include media-breakpoint-down(sm) {
+        &__stacks {
+            &.accordion--xl {
+                .accordion {
+                    &__button {
+                        font-size: calc-rem(16px);
+                        line-height: calc-rem(28px);
+                        padding: calc-rem(15px) calc-rem(26px) calc-rem(15px) 0;
+    
+                        .svg-inline {
+                            top: calc-rem(10px);
+                        }
+                    }
+
+                    &__body {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.collapse-css-transition {
+    @include transition(height, .28s, cubic-bezier(0.4, 0, 0.2, 1));
+
+    .collapse-css-transition-wrapper{
+        padding: calc-rem(20px);
+    }
+}
+
+/* -------------------------------------------------- */
+/* ---------------- Animation part ------------------ */
+/* -------------------------------------------------- */
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.override-label-color {
+  color: $color-primary !important;
+}
+
+.override-label-color:hover {
+  color: $color-primary !important;
+}

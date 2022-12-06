@@ -1,0 +1,311 @@
+// button component
+button, a {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.btn {
+    padding: calc-rem(18px) calc-rem(24px);
+    font-size: calc-rem(14px);
+    line-height: calc-rem(18px);
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    min-width: calc-rem(200px);
+    max-width: 100%;
+    min-height: calc-rem(48px);
+    margin: calc-rem(16px) 0;
+
+    @include media-breakpoint-down(xs) {
+        width: 100%;
+    }
+}
+
+// based on color
+.btn-primary {
+    @include base-button($color-white, $color-primary, $color-primary);
+    
+    &:hover,
+    &.btn-hover {
+        border-color: $color-secondary;
+        background-color: $color-secondary;
+        color: $color-white;
+    }
+
+    &-ghost {
+        @include base-button($color-primary, transparent, $color-primary, true);
+
+        &:hover,
+        &.btn-hover {
+            color: darken($color-primary, 20%);
+            border-color: darken($color-primary, 20%);
+        }
+    }
+}
+
+.btn-secondary {
+    @include base-button($color-primary ,$color-secondary, $color-secondary);
+    
+    &:hover,
+    &.btn-hover{
+        border-color: $color-secondary-hover;
+        background-color: $color-secondary-hover;
+    }
+
+    &:disabled,
+    &.btn-disabled {
+        color: $color-white;
+        border-color: $color-secondary-disabled;
+        background-color:$color-secondary-disabled;
+    }
+
+    &-ghost {
+        @include base-button($color-secondary, $color-white, $color-secondary, true)
+    }
+}
+
+.btn-white {
+    @include base-button($color-primary);
+
+    &:hover,
+    &.btn-hover {
+        border-color: $color-light-gray;
+        background-color: $color-light-gray;
+        color: $color-white;
+    }
+
+    &-ghost {
+        @include base-button($color-green-2, transparent, $color-white, true)
+    }
+}
+
+.btn-dark {
+    @include base-button($color-green-2, darken($color-blue-dark-2, 1.76), darken($color-blue-dark-2, 1.76));
+
+    &:hover,
+    &.btn-hover {
+        border-color: $color-blue-dark-2;
+        background-color: $color-blue-dark-2;
+        color: $color-white;
+    }
+
+    &-2 {
+        @include base-button($color-white, $color-blue-dark-2, $color-blue-dark-2);
+
+        &:hover,
+        &.btn-hover {
+            border-color: $color-green-dark-2;
+            background-color: $color-green-dark-2;
+            color: $color-white;
+        }
+    }
+}
+
+.btn-turquoise {
+    @include base-button($color-blue-dark-2, $color-green-2, $color-green-2);
+
+    &:hover,
+    &.btn-hover {
+        border-color: darken($color-green-1, 5.88);
+        background-color: darken($color-green-1, 5.88);
+    }
+}
+
+// Based on functionality
+.btn-link {
+    color: $color-primary;
+    font-weight: 500;
+    display: inline-flex;
+    background: none;
+    border: none;
+    outline: none;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    min-width: auto;
+    &:hover {
+        color: $color-secondary;
+    }
+
+    &-warning {
+        color: $color-red-1;
+        font-weight: 700;
+        text-decoration: underline;
+
+        &:hover {
+            color: darken($color-red-1, 20%);
+        }
+    }
+}
+
+.btn-price-options {
+    @include base-button($color-white, rgba($color-primary, .4), transparent);
+    justify-content: space-between;
+    width: 100%;
+    color: $color-white;
+    font-weight: 500;
+    margin: calc-rem(4px) 0;
+    padding: 0 calc-rem(16px);
+
+    .btn-price-options{
+        &-group {
+            display: flex;
+            align-items: center;
+
+            .svg-inline {
+                margin-right: calc-rem(16px);
+            }
+        }
+        
+        &-price--active {
+            color: $color-green-2;
+        }
+    }
+    
+
+    &:hover {
+        background-color: rgba($color-green-2, .9);
+        color: $color-blue-dark-2;
+
+        .btn-price-options-price--active {
+            color: $color-blue-dark-2;
+        }
+    }
+}
+
+.btn-stripped {
+    display: inline-block;
+    font-size: calc-rem(16px);
+    font-weight: 400;
+    border: none;
+    background-color: transparent;
+    width: auto;
+    outline: none;
+}
+
+.btn-user-tablet {
+    display: none;
+
+    .svg-inline {
+        font-size: calc-rem(18px);
+    }
+
+    @include media-breakpoint-down(lg) {
+        display: block;
+    }
+}
+
+.btn-user-desk {
+    @include media-breakpoint-down(lg) {
+        display: none;
+    }
+}
+
+.btn-language {
+    @include media-breakpoint-down(lg) {
+        .svg-inline {
+            display: none;
+        }
+    }
+}
+
+// Utility classes
+.btn-public {
+    font-family: $font-montserrat;
+    font-weight: 700;
+    font-size: $btn-font-size;
+    text-transform: uppercase;
+}
+
+.btn-landing {
+    font-family: $font-poppins;
+    font-weight: 600;
+    min-width: calc-rem(240px);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-rounded {
+    border-radius: 999px;
+}
+
+.btn-circle {
+    @extend .btn-rounded;
+    width: calc-rem(32px);
+    height: calc-rem(32px);
+    border: 2px solid $color-light-gray;
+    color: $color-light-gray;
+
+    &:hover {
+        background-color: darken($color-white, 10%);
+    }
+
+    &--dark {
+        background-color: $color-light-gray;
+
+        &:hover {
+            background-color: darken($color-light-gray, 10%);
+        }
+    }
+}
+
+// based on size
+.btn-sm {
+    min-height: calc-rem(40px);
+    font-size: $btn-font-size;
+}
+
+.btn-md {
+    min-height: calc-rem(56px);
+    font-size: calc-rem(14px);
+}
+
+// button with icon
+.btn-icon-left {
+    i, .svg-inline {
+        margin-right: $btn-icon-spacing;
+    }
+}
+
+.btn-icon-right {
+    i, .svg-inline  {
+        margin-left: $btn-icon-spacing + calc($btn-icon-spacing / 2);
+        font-size: calc-rem(15px);
+    }
+}
+
+.btn-icon-center {
+    width: calc-rem(44px);
+}
+
+
+a {
+    &.btn {
+        display: inline-flex;
+    }
+}
+
+.btn-back {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    color: $color-gray-1;
+    font-size: calc-rem(12px);
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: calc-rem(18px);
+
+    &:hover {
+        color: $color-primary;
+    }
+
+    .icon-chevron-left {
+        font-size: 1.25rem;
+        fill: $color-primary;
+        margin-right: calc-rem(10px);
+    }
+}

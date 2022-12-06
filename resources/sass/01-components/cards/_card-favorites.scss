@@ -1,0 +1,21 @@
+.card__favorites {
+  @extend %card-horizontal-thumbnail;
+  padding: calc-rem(23px) calc-rem(30px);
+  
+  .card {
+    &__body {
+      width: calc(100% - calc-rem(67px));
+    }
+
+    &__footer {
+      align-self: flex-end;
+      white-space: nowrap;
+
+      p {
+        color: $color-primary;
+        font-family: $font-montserrat;
+        font-weight: bold;
+      }
+    }
+  }
+}

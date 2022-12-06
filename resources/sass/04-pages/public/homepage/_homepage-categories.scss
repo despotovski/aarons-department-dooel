@@ -1,0 +1,111 @@
+/* purgecss start ignore */
+
+.homepage {
+  &__categories {
+    padding: calc-rem(65px) 0 calc-rem(110px);
+
+    // &-container {
+    //   .regular.slider {
+    //     display: flex;
+    //     flex-wrap: wrap;
+    //     margin: 0 calc-rem(-16px);
+    //   }
+    // }
+
+    .slick {
+      &-list {
+        padding-bottom: calc-rem(24px);
+      }
+
+      &-dots {
+        bottom: calc-rem(-44px);
+      }
+    }
+
+    h2 {
+      margin-bottom: calc-rem(24px);
+    }
+
+    .card {
+      // width: calc(100% / 4 - 32px);
+      margin: calc-rem(16px) 0;
+
+      &__body {
+        margin: calc-rem(20px) 0 calc-rem(5px);
+        max-height: calc-rem(22px);
+        
+        h5 {
+          color: $color-blue-dark-2;
+          @include transition(color, .25s);
+        }
+      }
+      
+      &:hover .card__body h5 {
+        color: $color-green-1;
+      }
+    }
+
+    @include media-breakpoint-down(md) {    
+      &-container .regular.slider {
+        margin: 0 calc-rem(-12px);
+      }
+  
+      .card {
+        // width: calc(100% / 3 - 24px);
+        margin: calc-rem(12px) 0;
+  
+        &__body h5 {
+          font-size: calc-rem(14px);
+        }
+      }
+    }
+
+    @include media-breakpoint-down(xs) {
+      padding: calc-rem(40px) 0 calc-rem(80px);
+
+      h2 {
+        font-size: calc-rem(20px);
+        margin-bottom: calc-rem(14px);
+        line-height: calc-rem(24px);
+      }
+
+      .homepage__subtitle {
+        font-size: calc-rem(16px);
+        line-height: calc-rem(24px);
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .card {
+        margin: 0;
+        box-shadow: none;
+
+        &__body {
+          margin: calc-rem(24px) 0 calc-rem(10px);
+
+          h5 {
+            font-size: calc-rem(18px);
+            line-height: calc-rem(25px);
+          }
+        }
+      }
+
+      .slick {
+        &-dots {
+          bottom: calc-rem(-42px);
+          li {
+            button::before {
+              color: lighten(adjust-hue($color-blue-dark-2, 8), 0.98);
+            }
+
+            &.slick-active button::before {
+              color: $color-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* purgecss end ignore */

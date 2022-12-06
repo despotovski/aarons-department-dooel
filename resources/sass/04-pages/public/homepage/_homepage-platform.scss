@@ -1,0 +1,33 @@
+.homepage {
+  &__platform {
+    background-color: darken($color-blue-dark-2, 1.76);
+    padding: calc-rem(40px) 0 calc-rem(216px) 0;
+
+    h3 {
+      width: 70%;
+      margin: 0 auto calc-rem(40px);
+      font-weight: 400;
+    }
+
+    &-logo {
+      width: calc-rem(85px);
+      margin: 0 auto calc-rem(20px);
+    }
+
+    @include media-breakpoint-down(xs) {  
+      &-logo {
+        width: calc-rem(64px);
+      }
+  
+      h2 {
+        font-size: calc-rem(20px);
+        line-height: calc-rem(28px);
+      }
+  
+      h3 {
+        line-height: calc-rem(26px);
+        margin-bottom: calc-rem(24px);
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+.branding {
+  display: flex;
+  align-items: center;
+  @include transition(margin-bottom, .25s);
+
+  &__beta {
+    display: inline-block;
+    background-color: $color-primary;
+    color: $color-white;
+    border-radius: $border-radius-xs;
+    padding: calc-rem(3px) calc-rem(8px);
+    margin-bottom: calc-rem(3px);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: $font-montserrat;
+    font-size: calc-rem(12px);
+    line-height: calc-rem(12px);
+    letter-spacing: .8px;
+  }
+
+  &__mark {
+    width: calc-rem(98px);
+    margin-right: calc-rem(10px);
+    @include transition(width, .25s);
+  }
+
+  &__wordmark {
+    font-family: $font-montserrat-alt;
+    font-weight: 700;
+    font-size: calc-rem(41px);
+    line-height: calc-rem(50px);
+    letter-spacing: -0.27px;
+    color: $color-white;
+    @include transition(font-size, .25s);
+
+    span {
+      color: $color-primary;
+      font-weight: 400;
+    }
+  }
+
+  &__tagline {
+    font-family: $font-montserrat;
+    font-size: calc-rem(12px);
+    line-height: calc-rem(15px);
+    color: $color-white;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    @include transition((opacity, margin-bottom), .25s);
+  }
+
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+    margin: 0 auto;
+  }
+}

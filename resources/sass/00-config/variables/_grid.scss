@@ -1,0 +1,24 @@
+$container-max-widths: (
+  sm: 500px,
+  md: 688px,
+  lg: 912px,
+  xl: 1220px
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1220px
+);
+
+$grid-breakpoints-big: (
+  xxl: 1920px,
+  xxxl: 2560px,
+  xxxxl: 3840px
+);
+
+$grid-columns: 12;
+
+$grid-gutter-width: calc-rem(24px);

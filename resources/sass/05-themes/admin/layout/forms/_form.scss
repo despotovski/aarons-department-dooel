@@ -1,0 +1,24 @@
+.admin-page {
+  .field-link a {
+    color: $color-blue-dark-1;
+    font-size: calc-rem(12px);
+    font-weight: 500;
+    line-height: calc-rem(48px);
+  
+    &:hover {
+      color: $color-primary;
+      text-decoration: underline;
+    }
+  }
+
+  .form-class {
+    p {
+      font-size: calc-rem(12px);
+      line-height: calc-rem(12px);
+  
+      &.description {
+        line-height: 1.5rem;
+      }
+    }
+  }
+}

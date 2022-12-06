@@ -1,0 +1,19 @@
+.block {
+  border-radius: $border-radius ;
+  padding: calc-rem(24px);
+
+  &__blue {
+    @extend .block;
+    background-color: rgba($color-primary, 0.07);
+  }
+
+  &__white {
+    @extend .block;
+    background-color: $color-white;
+  }
+
+  &__dark-green {
+    @extend .block;
+    background-color: $color-green-dark-1;
+  }
+}

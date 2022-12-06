@@ -1,0 +1,152 @@
+// Variables
+$checkbox-width: 18px;
+
+.input-radio,
+.input-radio-checked,
+.input-radio-tab {
+  @extend %radio-checkbox;
+  
+  >label{
+    padding-left: 0;
+    color: $color-primary;
+    &::before,&::after{
+      display: none;
+    }
+  }
+
+  input[type='radio'] {
+    min-width: initial;
+  }
+
+  input[type='radio'][disabled] {
+    min-width: initial;
+    &:not(:checked) + label::after {
+      border: 2px solid $color-primary;
+      background: white;
+
+    }
+
+    &:checked + label::before {
+      transform: translateY(-50%) rotate(-45deg) scale(1, 1);
+      background-color: $color-primary;
+    }
+
+    &:checked + label::after {
+      //background: white;
+      border-color: $color-primary;
+    }
+  }
+}
+
+.input-radio {
+  >label{
+    padding-left: 0;
+    color: $color-primary;
+    &::before,&::after{
+      display: none;
+    }
+  }
+
+  input[type='radio'] + label {
+    &::before {
+      transform: translateY(-50%) scale(0, 0);
+      top: 50%;
+      left: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      background-color: $color-primary;
+    }
+
+    &::after {
+      border: 1px solid $color-light-gray;
+      border-radius: calc-rem(16px);
+    }
+  }
+
+  input[type='radio'] {
+    &:checked + label::before {
+      left: 5px;
+      transform: translateY(-50%)!important;
+      background-color: $color-white;
+    }
+
+    &:checked + label::after {
+      border: 50% solid;
+      border-color: $color-primary;
+      background-color: $color-primary;
+    }
+  }
+}
+
+.input-radio-checked {
+  input[type='radio'] + label {
+    &::before {
+      left: calc-rem(5px);
+      top: calc(50% - 1px);
+      width: calc-rem(8px);
+      height: calc-rem(4px);
+      transform: translateY(-50%) rotate(-45deg) scale(0, 0);
+      border: 2px solid $color-white;
+      border-top-style: none;
+      border-right-style: none;
+    }
+
+    &::after {
+      width: calc-rem(16px);
+      height: calc-rem(16px);
+      border: 2px solid $color-primary;
+      border-radius: calc-rem(16px);
+      background-color: transparent;
+    }
+  }
+
+  input[type='radio'] {
+    &:checked + label::before {
+      transform: translateY(-50%) rotate(-45deg) scale(1, 1);
+    }
+
+    &:checked + label::after {
+      background-color: $color-primary;
+    }
+  }
+}
+
+.input-radio-tab {
+  label{
+    padding-left: calc-rem(20px);
+    padding-right: calc-rem(20px);
+    text-transform: uppercase;
+    font-family: $font-montserrat;
+    font-size: calc-rem(12px);
+    font-weight: 700;
+    min-width: calc-rem(100px);
+    text-align: center;
+  }
+
+  input[type='radio'] + label {
+    &::before {
+      content: none;
+    }
+
+    &::after {
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color-white, .42);
+      border: 1px solid rgba($color-primary, .42);
+      border-radius: $border-radius-pill;
+      z-index: -1;
+    }
+  }
+
+  input[type='radio'] {
+    &:checked + label {
+      color: $color-white;
+      
+      &::after {
+        border-color: lighten(desaturate($color-blue-dark-2, 19.51), 5.88);
+        background-color: lighten(desaturate($color-blue-dark-2, 19.51), 5.88);
+      }
+    }
+  }
+}

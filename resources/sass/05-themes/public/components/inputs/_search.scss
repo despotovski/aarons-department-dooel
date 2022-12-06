@@ -1,0 +1,14 @@
+.public-page {
+  .input-search {
+    input[type="search"] {
+      padding-right: calc-rem(20px);
+    }
+    .svg-inline {
+      position: absolute;
+      right: calc-rem(15px);
+      top: 50%;
+      transform: translateY(-50%);
+      fill: $color-primary;
+    }
+  }
+}

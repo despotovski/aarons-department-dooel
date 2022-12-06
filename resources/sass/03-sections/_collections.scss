@@ -1,0 +1,96 @@
+/* purgecss start ignore */
+.collections {
+  &__subtitle {
+    font-family: $font-montserrat;
+    font-size: calc-rem(22px);
+    line-height: calc-rem(34px);
+    color: $color-white;
+    text-align: center;
+  }
+
+  &__body {
+    background-color: darken(desaturate(adjust-hue($color-blue-dark-2, -9), 10.53), 6.47);
+    margin-top: calc-rem(-14px);
+    padding: calc-rem(50px) 0;
+    
+    &--scroll-cover {
+      position: relative;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        background-color: darken(desaturate(adjust-hue($color-blue-dark-2, -9), 10.53), 6.47);
+        width: 100%;
+        height: calc-rem(300px);
+        top: calc-rem(-300px);
+        left: 0;
+      }
+    }
+  }
+
+  &__list {
+    .regular.slider {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 calc-rem(-16px);
+      
+      .collections__card-wrapper {
+        width: calc(100% / 3 - calc-rem(32px));
+        margin: calc-rem(16px);
+      }
+    }
+
+    &--grid .regular.slider {
+      .collections__card-wrapper {
+        width: calc(100% / 2 - calc-rem(32px));
+      }
+    }
+
+    .slider__range {
+      max-width: calc-rem(800px);
+      margin: calc-rem(60px) auto;
+    }
+  }
+
+  &__card {
+    &-label {
+      display: flex;
+      align-items: center;
+      font-size: calc-rem(14px);
+      color: $color-white;
+      letter-spacing: -0.09px;
+
+      .svg-inline {
+        font-size: calc-rem(20px);
+        margin-right: calc-rem(12px);
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    &__list {
+      .regular.slider {
+        .collections__card-wrapper {
+          width: calc(100% / 2 - calc-rem(32px))
+        }
+      }
+      
+      &--grid {
+        .regular.slider .collections__card-wrapper {
+          width: calc(100% - calc-rem(32px));
+        }
+      }
+
+      .slider__range {
+        width: 90%;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xs) {
+    &__list .slick-slider {
+      margin: 0;
+    }
+  }
+}
+/* purgecss end ignore */

@@ -1,0 +1,48 @@
+.badge {
+  display: flex;
+  align-items: center;
+
+  &__thumbnail {
+    width: calc-rem(34px);
+    height: calc-rem(34px);
+    border-radius: $border-radius-circle;
+    overflow: hidden;
+    margin-right: calc-rem(12px);
+  }
+  
+  &__body {
+    flex: 1;
+    
+    h5.public-h5,
+    p {
+      font-family: $font-avenir;
+      font-weight: 400;
+      font-size: calc-rem(12px);
+      line-height: calc-rem(18px);
+      color: $color-blue-dark-2;
+      margin: 0;
+      text-transform: initial;
+    }
+
+    h5.public-h5 {
+      font-weight: 700;
+    }
+  }
+
+  &--xl {
+    .badge {
+      &__thumbnail {
+        width: calc-rem(64px);
+        height: calc-rem(64px);
+      }
+
+      &__body {
+        h5.public-h5,
+        p {
+          font-size: calc-rem(20px);
+          line-height: calc-rem(28px);
+        }
+      }
+    }
+  }
+}

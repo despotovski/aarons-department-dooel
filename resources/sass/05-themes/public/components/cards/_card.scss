@@ -1,0 +1,9 @@
+.card {
+  &__collections-switch {
+    .card__user-body {
+      p {
+        color: $color-white;
+      }
+    }
+  }
+}

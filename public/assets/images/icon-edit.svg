@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icons/icon-edit</title>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dili-Desktop-Gestion-Enchère" transform="translate(-966.000000, -650.000000)">
+            <g id="Form" transform="translate(360.000000, 318.000000)">
+                <g id="Table" transform="translate(24.000000, 289.000000)">
+                    <g id="Row-Odd" transform="translate(0.000000, 31.000000)">
+                        <g id="Tools" transform="translate(560.000000, 12.000000)">
+                            <g id="Icons/icon-edit" transform="translate(22.000000, 0.000000)">
+                                <polygon id="Path" points="0 0 16 0 16 16 0 16"></polygon>
+                                <path d="M8.6,4.572 L11.428,7.40066667 L4.828,14 L2,14 L2,11.1713333 L8.6,4.57133333 L8.6,4.572 Z M9.54266667,3.62933333 L10.9566667,2.21466667 C11.2169999,1.95441204 11.6390001,1.95441204 11.8993333,2.21466667 L13.7853333,4.10066667 C14.045588,4.3609999 14.045588,4.7830001 13.7853333,5.04333333 L12.3706667,6.45733333 L9.54266667,3.62933333 L9.54266667,3.62933333 Z" id="Shape" fill="#0D616C" fill-rule="nonzero"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,44 @@
+//Create row
+.row {
+  @include make-row();
+}
+
+// Remove the negative margin from default .row, then the horizontal padding
+// from all immediate children columns (to prevent runaway style inheritance).
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  > .col,
+  > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.gutters {
+  &-sm {
+    margin-right: calc-rem(-6px);
+    margin-left: calc-rem(-6px);
+
+    > .col,
+    > [class*="col-"] {
+      padding-right: calc-rem(6px);
+      padding-left: calc-rem(6px);
+    }
+  }
+
+  &-lg {
+    margin-right: calc-rem(-18px);
+    margin-left: calc-rem(-18px);
+
+    > .col,
+    > [class*="col-"] {
+      padding-right: calc-rem(18px);
+      padding-left: calc-rem(18px);
+    }
+  }
+}
+
+//Called mixin to create row
+@include make-grid-columns();

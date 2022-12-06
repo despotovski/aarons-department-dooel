@@ -1,0 +1,28 @@
+paths:
+  - ./app
+layers:
+  - name: Controller
+    collectors:
+      - type: className
+        regex: .*Controller.*
+  - name: BLL
+    collectors:
+      - type: className
+        regex: .*BLL.*
+  - name: DAL
+    collectors:
+      - type: className
+        regex: .*DAL.*
+  - name: Model
+    collectors:
+      - type: directory
+        regex: app/Domain/.*/Models/.*
+ruleset:
+  Controller:
+    - BLL
+    - Model
+  BLL:
+    - DAL
+    - Model
+  DAL:
+    - Model

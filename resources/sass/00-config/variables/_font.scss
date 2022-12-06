@@ -1,0 +1,72 @@
+@import "../mixins/mixins";
+
+// POPPINS
+$poppins-path: '../assets/fonts/poppins/Poppins-';
+$poppins-variations: (
+    Regular: 400,
+    Medium: 500,
+    SemiBold: 600,
+    Bold: 700
+);
+
+// Avenir
+$avenir-path: '../assets/fonts/avenir-next/AvenirNextLTPro-';
+$avenir-variations: (
+    Regular: 400,
+    Medium: 500,
+    Demi: 600,
+    Bold: 700,
+    Heavy: 900
+);
+
+// Montserrat
+$montserrat-path: '../assets/fonts/montserrat/Montserrat-';
+$montserrat-variations: (
+    Medium: 500,
+    SemiBold: 600,
+);
+
+// Montserrat Alternates
+$montserrat-alt-path: '../assets/fonts/montserrat-alternates/MontserratAlternates-';
+$montserrat-alt-variations: (
+    Regular: 400,
+    Bold: 700
+);
+
+// Recoleta
+$recoleta-path: '../assets/fonts/recoleta/Recoleta-';
+$recoleta-variations: (
+    Regular: 500,
+    SemiBold: 600,
+);
+
+@each $variation,
+$weight in ($poppins-variations) {
+    @include font-face('Poppins', $poppins-path + $variation, $weight);
+}
+
+@each $variation,
+$weight in ($avenir-variations) {
+    @include font-face('AvenirNext LT Pro', $avenir-path + $variation, $weight);
+}
+
+@each $variation,
+$weight in ($montserrat-variations) {
+    @include font-face('Montserrat', $montserrat-path + $variation, $weight);
+}
+
+@each $variation,
+$weight in ($montserrat-alt-variations) {
+    @include font-face('Montserrat Alternates', $montserrat-alt-path + $variation, $weight);
+}
+
+@each $variation,
+$weight in ($recoleta-variations) {
+    @include font-face('Recoleta', $recoleta-path + $variation, $weight);
+}
+
+$font-poppins: 'Poppins', sans-serif;
+$font-avenir: 'AvenirNext LT Pro', sans-serif;
+$font-montserrat: 'Montserrat', sans-serif;
+$font-montserrat-alt: 'Montserrat Alternates', sans-serif;
+$font-recoleta: 'Recoleta', sans-serif;

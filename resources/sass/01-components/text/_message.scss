@@ -1,0 +1,31 @@
+.message {
+    @extend .p-all-md;
+    font-size: calc-rem(14px);
+
+
+    @each $name,
+    $color in ($colors-message) {
+
+        &.message-#{$name} {
+            color: $color-white;
+            background-color: $color;
+
+            .message-link {
+                // font-weight: bold;
+                text-decoration: underline;
+                color: $color-white;
+            }
+        }
+      &.message1-#{$name} {
+        color: black;
+        background-color: #edeeee;
+        font-weight: bold;
+
+        .message-link {
+          // font-weight: bold;
+          text-decoration: underline;
+          color: $color-white;
+        }
+      }
+    }
+}

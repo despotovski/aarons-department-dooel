@@ -1,0 +1,84 @@
+/**
+* Add a transition to the label and input.
+* I'm not even sure that touch-action: manipulation works on
+* inputs, but hey, it's new and cool and could remove the
+* pesky delay.
+*/
+label,
+input {
+    transition: all 0.3s ease-in-out;
+    touch-action: manipulation;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type='number'],
+input[type='search'] {
+    font-family: inherit;
+    -webkit-appearance: none;
+    cursor: text;
+    font-size: calc-rem(12px);
+    padding: calc-rem(16px);
+    color: $color-gray-1;
+    width: max-content;
+
+
+    &.block {
+        width: 100%;
+    }
+
+    &.error {
+        border-color: $color-error;
+    }
+
+    &.success {
+        border-color: $color-success;
+    }
+
+}
+
+input[type=text]:focus {
+    outline: none;
+}
+input[type=text]{
+    &:not([value=""])+label{
+        position: absolute;
+    }
+}
+
+.message {
+    &-error,
+    &-success {
+        font-size: calc-rem(12px);
+        margin-top: calc-rem(16px);
+    }
+    
+    &-error {
+        color: $color-error;
+    }
+    
+    &-success {
+        color: $color-success;
+    }
+}
+
+.pass-wrapper {
+  position: relative;
+  display: flex;
+  
+  i {
+    position: absolute;
+    top: 50%;
+    right: calc-rem(18px);
+    transform: translateY(-50%);
+    color: $color-light-gray;
+    font-size: calc-rem(18px);
+  }
+}
+
+.transparent-input {
+  background-color: transparent;
+  color: white !important;
+}

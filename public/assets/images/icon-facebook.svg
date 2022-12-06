@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icons/icon-facebook</title>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dili-Desktop-Contact" transform="translate(-689.000000, -649.000000)">
+            <g id="/-CARDS-Copy" transform="translate(360.000000, 208.000000)">
+                <g id="Contact-Us" transform="translate(0.000000, 272.000000)">
+                    <g id="Social" transform="translate(264.000000, 159.000000)">
+                        <g id="Facebook" transform="translate(56.000000, 0.000000)">
+                            <g id="Icons/icon-facebook" transform="translate(9.000000, 10.000000)">
+                                <polygon id="Path" points="0 0 20 0 20 20 0 20"></polygon>
+                                <path d="M11.6666667,11.25 L13.75,11.25 L14.5833333,7.91666667 L11.6666667,7.91666667 L11.6666667,6.25 C11.6666667,5.39166667 11.6666667,4.58333333 13.3333333,4.58333333 L14.5833333,4.58333333 L14.5833333,1.78333333 C14.3116667,1.7475 13.2858333,1.66666667 12.2025,1.66666667 C9.94,1.66666667 8.33333333,3.0475 8.33333333,5.58333333 L8.33333333,7.91666667 L5.83333333,7.91666667 L5.83333333,11.25 L8.33333333,11.25 L8.33333333,18.3333333 L11.6666667,18.3333333 L11.6666667,11.25 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,139 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  font-weight: 700;
+}
+
+h1 {
+  letter-spacing: -0.4px;
+
+  &.admin-h1 {
+    font-size: calc-rem(24px);
+    line-height: calc-rem(32px);
+    color: $color-primary;
+    margin-bottom: 1rem;
+    padding: calc-rem(20px) 0;
+  }
+
+  &.public-h1 {
+    font-size: calc-rem(56px);
+    line-height: calc-rem(60px);
+    margin-bottom: 1rem;
+  }
+
+  @media screen and (max-width:$breakpoint-tablet) {
+    &.admin-h1 {
+      font-size: calc-rem(22px);
+      line-height: calc-rem(28px);
+    }
+
+    &.public-h1 {
+      font-size: calc-rem(32px);
+      line-height: calc-rem(40px);
+    }
+  }
+}
+
+h2 {
+  font-size: calc-rem(20px);
+  letter-spacing: 0px;
+  line-height: calc-rem(26px);
+  
+  &.admin-h2 {
+    text-transform: uppercase;
+    color: $color-primary;
+  }
+
+  &.public-h2 {
+    font-size: calc-rem(42px);
+    letter-spacing: -0.59px;
+    line-height: calc-rem(40px);
+  }
+
+  &.public-title {
+    font-size: calc-rem(48px);
+    letter-spacing: -0.8px;
+    line-height: calc-rem(61px);
+  }
+
+  @media screen and (max-width:$breakpoint-tablet) {
+    font-size: calc-rem(18px);
+
+    &.public-h2 {
+      font-size: calc-rem(24px);
+      letter-spacing: -0.09px;
+      line-height: calc-rem(32px);
+    }
+  }
+}
+
+h3 {
+  &.admin-h3 {
+    font-size: calc-rem(18px);
+    letter-spacing: 0;
+    line-height: calc-rem(26px);
+  }
+
+  &.public-h3 {
+    font-size: calc-rem(26px);
+    letter-spacing: -0.43px;
+    line-height: calc-rem(34px);
+  }
+
+  &.public-subtitle {
+    font-size: calc-rem(24px);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: calc-rem(34px);
+  }
+
+  @media screen and (max-width:$breakpoint-tablet) {
+    &.public-h3 {
+      font-size: calc-rem(18px);
+      line-height: calc-rem(30px);
+    }
+  }
+}
+
+h4 {
+  &.admin-h4 {
+    font-size: calc-rem(14px);
+    letter-spacing: 0;
+    line-height: calc-rem(31px);
+    text-transform: capitalize;
+    color: $color-primary;
+    margin-bottom: calc-rem(14px);
+  }
+
+  &.public-h4 {
+    font-family: $font-montserrat;
+    font-size: calc-rem(18px);
+    letter-spacing: -0.11px;
+    line-height: calc-rem(25px);
+  }
+
+  @media screen and (max-width:$breakpoint-tablet) {
+    &.admin-h4 {
+      font-size: calc-rem(12px);
+      line-height: calc-rem(16px);
+    }
+
+    &.public-h4 {
+      font-size: calc-rem(14px);
+      line-height: calc-rem(22px);
+    }
+  }
+}
+
+h5 {
+  font-size: calc-rem(12px);
+
+  &.public-h5 {
+    font-size: calc-rem(16px);
+    line-height: calc-rem(22px);
+    letter-spacing: -.1px;
+  }
+}
+
+h6 {
+  font-size: calc-rem(10px);
+}

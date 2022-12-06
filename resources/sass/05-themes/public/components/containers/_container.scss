@@ -1,0 +1,15 @@
+.public-page {
+  @include media-breakpoint-down(lg) {
+    .container {
+      padding-right: $grid-gutter-width * 1.33;
+      padding-left: $grid-gutter-width * 1.33;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    .container {
+      padding-right: $grid-gutter-width;
+      padding-left: $grid-gutter-width;
+    }
+  }
+}

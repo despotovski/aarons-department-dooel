@@ -1,0 +1,154 @@
+.homepage {
+  &__testimonials {
+    position: relative;
+    padding-top: calc-rem(180px);
+    padding-bottom: calc-rem(48px);
+    // min-height: calc-rem(500px);
+
+    .card__testimonials {
+      position: relative;
+      margin-top: calc-rem(-360px);
+      margin-bottom: calc-rem(436px);
+      z-index: 1;
+    }
+
+    .section__bg {
+      &::before {
+        background-color: rgba(darken($color-blue-dark-2, 1.18), .56);
+        z-index: 1;
+      }
+    }
+
+    &-user,
+    &-stats {
+      h4 {
+        color: $color-white;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+    }
+
+    &-user {
+      img {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        margin-right: 20px;
+      }
+
+      h4 span {
+        font-weight: 400;
+      }
+    }
+
+    &-stats h4 {
+      font-family: $font-recoleta;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    @include media-breakpoint-down(md) {
+      .card__testimonials {
+        padding: calc-rem(40px) calc-rem(50px);
+        margin-top: calc-rem(-320px);
+  
+        &-details {
+          font-size: calc-rem(22px);
+          line-height: calc-rem(30px);
+  
+          &-title {
+            font-size: calc-rem(16px);
+            line-height: calc-rem(24px);
+            font-weight: 500;
+          }
+        }
+      }
+  
+      .card__body {
+        margin-left: calc-rem(48px);
+      }
+    }
+
+    @include media-breakpoint-down(xs) {
+      padding-bottom: calc-rem(24px);
+
+      .card {
+        &__testimonials {
+          padding: 2.5rem calc-rem(24px) calc-rem(32px);
+          margin-bottom: calc-rem(288px);
+          flex-direction: column;
+          align-items: center;
+          overflow: visible;
+  
+          &-user {
+            width: calc-rem(80px);
+          }
+  
+          &-username,
+          &-jobtitle  {
+            display: none;
+          }
+  
+          &-details {
+            font-size: calc-rem(18px);
+            line-height: calc-rem(26px);
+          }
+        }
+
+        &__thumbnail {
+          margin-top: calc-rem(-90px);
+          border: 2px solid $color-white;
+
+          &--circle {
+            padding-bottom: calc(100% - 4px);
+          }
+        }
+  
+        &__body {
+          margin-left: 0;
+          text-align: center;
+          padding-bottom: calc-rem(20px);
+          border-bottom: 1px solid #F0F0F0;
+          margin-bottom: 20px;
+        }
+
+        &__head--mobile {
+          text-align: center;
+          margin: 0;
+
+          .card__testimonials-username,
+          .card__testimonials-jobtitle {
+            display: block;
+            margin: 0;
+          }
+        }
+      }
+
+      &-user {
+        img {
+          width: calc-rem(40px);
+          height: calc-rem(40px);
+          margin-right: calc-rem(16px);
+        }
+
+        h4.public-h4 {
+          font-size: calc-rem(14px);
+          line-height: 1;
+        }
+      }
+
+      &-stats {
+        display: flex;
+        justify-content: space-between;
+        margin-top: calc-rem(20px);
+        align-items: center;
+
+        h4 {
+          font-size: calc-rem(16px);
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

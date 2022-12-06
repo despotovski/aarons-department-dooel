@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20" height="20" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icons/icon-arrow-down</title>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dili-Desktop-FAQ" transform="translate(-1008.000000, -392.000000)">
+            <g id="Questions" transform="translate(360.000000, 208.000000)">
+                <g id="Question-02" transform="translate(0.000000, 184.000000)">
+                    <g id="Icons/icon-arrow-down" transform="translate(648.000000, 0.000000)">
+                        <polygon id="Path" points="0 0 32 0 32 32 0 32"></polygon>
+                        <polygon id="Path" fill="#FD7E03" fill-rule="nonzero" points="16 17.5626667 22.6 10.9626667 24.4853333 12.848 16 21.3333333 7.51466667 12.848 9.4 10.9626667"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,26 @@
+.public-page {
+  .input-checkbox {
+    label {
+      color: $color-green-dark-1;
+      font-weight: 500;
+      line-height: calc-rem(14px);
+    }
+
+    input[type='checkbox'] + label {
+      &::before {
+        left: calc-rem(6px);
+      }
+
+      &::after {
+        border: 1px solid $color-light-gray;
+        border-radius: $border-radius-xs;
+        width: calc-rem(22px);
+        height: calc-rem(22px);
+      }
+    }
+
+    input[type='checkbox']:checked + label::after {
+      border-color: $color-primary;
+    }
+  }
+}

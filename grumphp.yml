@@ -1,0 +1,44 @@
+grumphp:
+  testsuites:
+    git_pre_commit:
+      tasks:
+        - phplint
+        - phpcs
+        - phpmd
+        - deptrac
+        - file_size
+        - git_commit_message
+        - git_branch_name
+  tasks:
+    phplint:
+    phpcs:
+    phpmd:
+      whitelist_patterns: ['app/']
+      ruleset: ['phpmd.xml']
+      exclude: ['app/Console/Kernel.php', '_ide_helper.php']
+    deptrac:
+#    phpstan:
+    phpunit:
+    file_size:
+      max_size: 3M
+    git_commit_message:
+      enforce_capitalized_subject: false
+      max_subject_width: 180
+      matchers:
+        Commit message must begin with a story number: /^(Merge|#\d+)\s/
+      case_insensitive: false
+#    git_blacklist:
+#      keywords:
+#        - "die("
+#        - "var_dump("
+#        - "exit;"
+#        - "console.log("
+    git_branch_name:
+      whitelist:
+        - '/^(dev|(story|bug|task|hotfix)\/\d+[a-z-0-9]+)$/'
+  hide_circumvention_tip: true
+  ignore_unstaged_changes: false
+  process_timeout: 360
+  ascii:
+    failed: failed.txt
+    succeeded: succeeded.txt

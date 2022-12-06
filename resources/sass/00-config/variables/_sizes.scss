@@ -1,0 +1,24 @@
+@import "../mixins/mixins";
+
+// BREAKPOINTS
+$breakpoint-desktop-small: 1220px;
+$breakpoint-tablet: 992px;
+$breakpoint-mobile: 768px;
+
+$border-radius-xs: calc-rem(4px);
+$border-radius-sm: calc-rem(6px);
+$border-radius-md: calc-rem(8px);
+$border-radius: calc-rem(12px);
+$border-radius-circle: 50%;
+$border-radius-pill: calc-rem(50px);
+
+// TEXT SIZES
+$text-size: (
+  12: 12px,
+  14: 14px,
+  18: 18px,
+  19: 19px,
+  22: 22px,
+  24: 24px,
+  30: 30px
+);

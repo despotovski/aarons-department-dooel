@@ -1,0 +1,126 @@
+/* purgecss start ignore */
+.faq {
+  &__full {
+    padding-bottom: calc-rem(100px);
+  }
+
+  &__heading {
+    color: $color-white;
+    font-size: calc-rem(36px);
+    line-height: calc-rem(40px);
+    letter-spacing: -.5px;
+    margin-bottom: calc-rem(60px);
+  }
+
+  &--shared {
+    overflow: hidden;
+  }
+
+  &__split {
+    position: relative;
+    height: 100%;
+    padding: calc-rem(60px) calc-rem(40px) calc-rem(100px) 0;
+    z-index: 0;
+    
+    &-bg {
+      position: absolute;
+      width: 50vW;
+      height: 100%;
+      top: 0;
+      z-index: -1;
+      
+      img {
+        opacity: .12;
+      }
+    }
+
+    &--left {
+      padding-right: calc-rem(32px);
+
+      .faq__split-bg {
+        right: calc-rem(-12px);
+        background-color: $color-green-dark-1;
+      }
+    }
+
+    &--right {
+      padding-left: calc-rem(64px);
+
+      .faq__split-bg {
+        left: calc-rem(-12px);
+        background-color: $color-green-1;
+      }
+    }
+
+    &-tags {
+      
+      .regular.slider {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 calc-rem(-4px);
+      }
+
+      .tags__item {
+        margin: calc-rem(6px) calc-rem(4px);
+      }
+    }
+
+  }
+
+  &__questions {
+    max-height: calc-rem(220px);
+    overflow-y: auto;
+  }
+
+  @include media-breakpoint-down(md) {
+    &__heading {
+      font-size: calc-rem(28px);
+      line-height: calc-rem(36px);
+      margin-bottom: calc-rem(32px);
+    }
+
+    &__split {
+      padding: calc-rem(42px) 0;
+
+      .faq__split-bg {
+        width: calc(100% + calc-rem(64px));
+      }
+     
+      &--left .faq__split-bg {
+        right: calc-rem(-32px);
+      }
+
+      &--right .faq__split-bg {
+        left: calc-rem(-32px);
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__heading {
+      font-size: calc-rem(24px);
+      line-height: calc-rem(32px);
+      margin-bottom: calc-rem(16px);
+      letter-spacing: -0.34px;
+    }
+
+    &__split {
+      padding: calc-rem(30px) 0 calc-rem(58px);
+      
+      &-tags {
+        margin-right: calc-rem(-24px);
+      }
+
+      .slick {
+        &-dots {
+          width: calc(100% - 1.5rem);
+          text-align: center;
+          left: 0;
+          right: unset;
+          bottom: calc-rem(-36px);
+        }
+      }
+    }
+  }
+}
+/* purgecss end ignore */

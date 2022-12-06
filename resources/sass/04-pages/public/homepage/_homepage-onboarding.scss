@@ -1,0 +1,120 @@
+/* purgecss start ignore */
+
+.homepage {
+  &__onboarding {
+    margin-top: calc-rem(56px);
+
+    .regular.slider {
+      display: flex;
+      margin: 0 calc-rem(-16px);
+    }
+
+    &-item {
+      padding-top: 45px;
+      width: calc(100% / 3 - 32px);
+      margin: calc-rem(16px);
+    }
+
+    &-icon {
+      position: relative;
+      width: calc-rem(160px);
+      height: calc-rem(90px);
+      background-color: $color-blue-dark-2;
+      padding: 0 calc-rem(42px);
+      margin: 0 auto calc-rem(90px);
+
+      img {
+        object-fit: contain;
+        position: relative;
+        z-index: 2;
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 0;
+        border-left: calc-rem(80px) solid transparent;
+        border-right: calc-rem(80px) solid transparent;
+      }
+      
+      &::before {
+        top: calc-rem(-44.5px);
+        border-bottom: calc-rem(45px) solid $color-blue-dark-2;
+      }
+
+      &::after {
+        bottom: calc-rem(-44.5px);
+        border-top: calc-rem(45px) solid $color-blue-dark-2;
+      }
+    }
+
+    &-title {
+      font-size: calc-rem(22px);
+      color: $color-white;
+      font-weight: 600;
+      line-height: calc-rem(26px);
+      margin-bottom: calc-rem(40px);
+    }
+
+    &-text {
+      font-size: calc-rem(18px);
+      line-height: calc-rem(26px);
+      color: lighten(desaturate($color-primary, 49.30), 23.92);
+    }
+
+    @include media-breakpoint-down(md) {  
+      &-text {
+        font-size: calc-rem(16px);
+        line-height: calc-rem(24px);
+      }
+    }
+
+    @include media-breakpoint-down(xs) {
+      margin-top: calc-rem(40px);
+
+      &-text {
+        display: none;
+      }
+
+      &-item {
+        margin: 0;
+        padding-top: calc-rem(34px);
+      }
+
+      &-icon {
+        width: calc-rem(120px);
+        height: calc-rem(72px);
+        padding: 0 calc-rem(28px);
+        margin-bottom: calc-rem(50px);
+
+        &::before,
+        &::after {
+          border-left: calc-rem(60px) solid transparent;
+          border-right: calc-rem(60px) solid transparent;
+        }
+
+        &::before {
+          top: calc-rem(-33.5px);
+          border-bottom: calc-rem(34px) solid $color-blue-dark-2;
+        }
+
+        &::after {
+          bottom: calc-rem(-33.5px);
+          border-top: calc-rem(34px) solid $color-blue-dark-2;
+        }
+      }
+
+      .slick-overflow-right {
+        margin-right: calc-rem(-24px);
+
+        .slick-dots {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+/* purgecss end ignore */

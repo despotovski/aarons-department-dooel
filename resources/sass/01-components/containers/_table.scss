@@ -1,0 +1,351 @@
+//
+// Basic Bootstrap table
+//
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: $table-color;
+  background-color: $table-bg; // Reset for nesting within parents with `background-color`.
+
+  th,
+  td {
+    padding: $table-cell-padding;
+    vertical-align: top;
+    border-top: $table-border-width solid $table-border-color;
+  }
+
+  thead th {
+    vertical-align: bottom;
+    border-bottom: (2 * $table-border-width) solid $table-border-color;
+  }
+
+  tbody + tbody {
+    border-top: (2 * $table-border-width) solid $table-border-color;
+  }
+}
+
+//
+// Condensed table w/ half padding
+//
+
+.table-sm {
+  th,
+  td {
+    padding: $table-cell-padding-sm;
+  }
+}
+
+// Border versions
+//
+// Add or remove borders all around the table and between all the columns.
+
+.table-bordered {
+  border: $table-border-width solid $table-border-color;
+
+  th,
+  td {
+    border: $table-border-width solid $table-border-color;
+  }
+
+  thead {
+    th,
+    td {
+      border-bottom-width: 2 * $table-border-width;
+    }
+  }
+}
+
+.table-borderless {
+  th,
+  td,
+  thead th,
+  tbody + tbody {
+    border: 0;
+  }
+}
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.table-striped {
+  tbody tr:nth-of-type(#{$table-striped-order}) {
+    background-color: $table-accent-bg;
+  }
+}
+
+// Table backgrounds
+//
+// Exact selectors below required to override `.table-striped` and prevent
+// inheritance to nested tables.
+
+@each $color, $value in $theme-colors {
+  @include table-row-variant(
+    $color,
+    theme-color-level($color, $table-bg-level),
+    theme-color-level($color, $table-border-level)
+  );
+}
+
+@include table-row-variant(active, $table-active-bg);
+
+// Dark styles
+//
+// Same table markup, but inverted color scheme: dark background and light text.
+
+// stylelint-disable-next-line no-duplicate-selectors
+.table {
+  .thead-dark {
+    th {
+      color: $table-dark-color;
+      background-color: $table-dark-bg;
+      border-color: $table-dark-border-color;
+    }
+  }
+
+  .thead-light {
+    th {
+      color: $table-head-color;
+      background-color: $table-head-bg;
+      border-color: $table-border-color;
+    }
+  }
+}
+
+// Responsive tables
+//
+// Generate series of `.table-responsive-*` classes for configuring the screen
+// size of where your table will overflow.
+
+// .table-responsive {
+//   @each $breakpoint in map-keys($grid-breakpoints) {
+//     $next: breakpoint-next($breakpoint, $grid-breakpoints);
+//     $infix: breakpoint-infix($next, $grid-breakpoints);
+
+//     &#{$infix} {
+//       @include media-breakpoint-down($breakpoint) {
+//         display: block;
+//         width: 100%;
+//         overflow-x: auto;
+//         -webkit-overflow-scrolling: touch;
+
+//         // Prevent double border on horizontal scroll due to use of `display: block;`
+//         > .table-bordered {
+//           border: 0;
+//         }
+//       }
+//     }
+//   }
+// }
+
+.table-scroll-wrap {
+  padding-top: 2rem;
+  overflow-x: auto;
+}
+
+.table-layout-container{
+    .row{
+    margin: 0 -12px;
+
+    label {
+      line-height: calc-rem(20px);
+    }
+  }
+}
+
+.table-layout {
+  a{
+    &:hover{
+      color: $color-secondary;
+      text-decoration: underline;
+    }
+  }
+
+  &__header-row {
+    background-color: $color-secondary;
+    border: 2px solid transparent;
+
+  }
+
+  &__header-col {
+    padding: calc-rem(6px) 1rem;
+    color: $color-white;
+    text-align: left;
+    font-size: calc-rem(12px);
+    letter-spacing: 0.38px;
+    font-weight: 500;
+    height: calc-rem(48px);
+  }
+
+  &__header-icon {
+    fill: #fff;
+    display: inline-flex;
+    margin-left: auto;
+    .svg-inline {
+      width: calc-rem(36px);
+      height: calc-rem(24px);
+      fill: $color-primary;
+    }
+  }
+
+  &__header-col-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__body-row {
+    border: 2px solid transparent;
+    transition: all 0.35s ease;
+    &:nth-child(odd) {
+      background-color: $color-primary-table-border;
+    }
+
+    &:nth-child(even) {
+      background-color: $color-white;
+      border-bottom: 2px solid $color-white;
+      border-top: 2px solid $color-white;
+    }
+    &:last-child {
+      border-bottom: 2px solid $color-white;
+      border-top: 2px solid transparent;
+    }
+    &:hover  {
+      td {
+        border-top: 2px solid $color-primary;
+        border-bottom: 2px solid $color-primary;
+
+        &:first-child {
+          border-left: 2px solid $color-primary;
+        }
+
+        &:last-child {
+          border-right: 2px solid $color-primary;
+        }
+      }
+    }
+  }
+
+  &__body-col {
+    padding: calc-rem(12px) 1rem;
+    color: $color-gray-1;
+    font-size: calc-rem(12px);
+    font-weight: 500;
+    letter-spacing: 0.38px;
+    
+    a,
+    .btn-icon {
+      font-weight: inherit;
+      font-size: inherit;
+      letter-spacing: inherit;
+    }
+
+    .flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      
+      button {
+        background:none;
+        border: none;
+      }
+      
+      .svg-inline {
+        fill: $color-primary;
+        height: calc-rem(14px);
+        margin-left: calc-rem(10px);
+        transition: fill, .25s;
+        
+        &:hover {
+          fill: $color-blue-dark;
+        }
+      }
+    }
+  }
+
+  &__head-thumbnail {
+    width: calc-rem(85px);
+  }
+
+  &__body-thumbnail {
+    width: calc-rem(48px);
+    height: calc-rem(48px);
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &.table-fence {
+    .table-layout {
+      &__header-row {
+        background-color: $color-white;
+      }
+
+      &__header-col {
+        font-size: calc-rem(12px);
+        font-weight: 600;
+        color: $color-secondary;
+      }
+      
+      &__body-row{
+        background-color: transparent;
+        border: none;
+
+        &:nth-child(even) {
+          background-color: transparent;
+          border: none
+        }
+        &:last-child {
+          border: none;
+        }
+
+        &:hover {
+          .table-layout__body-col {
+            border: none;
+          }
+        }
+      }
+
+      &__body-col {
+        padding: calc-rem(4px) 0;
+
+        &:first-child {
+          .table-layout__body-cell {
+            border-top-left-radius: calc-rem(12px);
+            border-bottom-left-radius: calc-rem(12px);
+          }
+        }
+
+        &:last-child {
+          .table-layout__body-cell {
+            border-top-right-radius: calc-rem(12px);
+            border-bottom-right-radius: calc-rem(12px);
+          }
+        }
+
+        .flex .svg-inline {
+          fill: $color-secondary;
+        }
+      }
+
+      &__body-cell {
+        background-color: lighten(desaturate(adjust-hue($color-blue-light, -16), 16.07), 48.43);
+        display: flex;
+        height: calc-rem(48px);
+        align-items: center;
+        padding: calc-rem(9px) calc-rem(16px);
+      }
+    }
+  }
+
+  .input-checkbox {
+    margin: 0 !important;
+
+    input[type=checkbox] + label::after {
+      top: 0;
+    }
+
+    label {
+      padding: 0;
+    }
+  }
+}

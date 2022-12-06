@@ -1,0 +1,58 @@
+.public-page {
+  button, a {    
+    &.btn {
+        padding: calc-rem(4px) calc-rem(24px);
+        min-height: calc-rem(44px);
+        min-width: unset;
+    }
+
+    &.btn-icon-center {
+      padding: calc-rem(4px);
+    }
+
+    &.btn-sm {
+      min-height: calc-rem(40px);
+      font-size: $btn-font-size;
+      
+      &.btn-icon-center {
+        width: calc-rem(40px);
+      }
+    }
+
+    &.btn-md {
+      min-height: calc-rem(56px);
+      font-size: calc-rem(14px);
+    }
+    
+    &.btn-landing {
+      min-width: calc-rem(240px);
+    }
+  }
+
+  .btn-primary {
+    &-ghost{
+      &:hover,
+      &.btn-hover {
+          color: $color-white;
+          border-color: $color-white;
+      }
+    }
+    
+    &-ghost-2 {
+      @include base-button($color-primary, transparent, $color-primary, true);
+  
+      &:hover,
+      &.btn-hover {
+          color: darken($color-primary, 20%);
+          border-color: darken($color-primary, 20%);
+      }
+    }
+  }
+
+}
+
+.auth-page {
+  a.btn {
+    color: $color-white;
+  }
+}

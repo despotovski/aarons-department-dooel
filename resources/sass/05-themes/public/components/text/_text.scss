@@ -1,0 +1,27 @@
+.public-page {
+  a {
+    line-height: calc-rem(22px);
+    letter-spacing: -0.1px;
+
+  }
+
+  p {
+    color: $color-blue-dark-2;
+  }
+}
+
+.auth-page {
+  a {
+    color: $color-primary;
+      
+    &:hover {
+      color: $color-blue-dark-1;
+    }
+  }
+}
+
+.landing__page {
+  p {
+    color: $color-white;
+  }
+}

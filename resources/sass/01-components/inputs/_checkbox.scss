@@ -1,0 +1,61 @@
+// Variables
+$checkbox-width: 18px;
+
+.input-checkbox {
+  @extend %radio-checkbox;
+  margin: 4px 0;
+
+  label {
+    padding: 0 0 0 35px;
+    font-weight: 400;
+  }
+
+  input[type='checkbox'] + label {
+    &::before {
+      left: 5px;
+      top: calc(50% - 1px);
+      transform: translateY(-50%) rotate(-45deg) scale(0, 0);
+      border: 2px solid #fff;
+      border-top-style: none;
+      border-right-style: none;
+    }
+
+    &::after {
+      border: 2px solid $color-light-gray;
+    }
+  }
+
+  input[type='checkbox'] {
+    min-width: initial;
+
+    &:checked + label::before {
+      transform: translateY(-50%) rotate(-45deg) scale(1, 1);
+    }
+
+    &:checked + label::after {
+      background: $color-primary;
+      border: 2px solid $color-primary;
+    }
+  }
+
+  input[type='checkbox'][disabled] {
+    min-width: initial;
+
+    &:not(:checked) + label::after {
+      border: 2px solid $color-light-gray;
+      background: $color-light-gray;
+
+    }
+
+    &:checked + label::before {
+      color: $color-light-gray;
+      border-color:  $color-light-gray;
+      transform: translateY(-50%) rotate(-45deg) scale(1, 1);
+    }
+
+    &:checked + label::after {
+      background: white;
+      border: 2px solid $color-light-gray;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.mock__input {
+	border: 1px solid $color-light-gray;
+	border-radius: $border-radius-md;
+	min-height: calc-rem(48px);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: calc-rem(10px) calc-rem(16px);
+
+	p,
+	h5 {
+		font-size: calc-rem(16px);
+		font-family: $font-avenir;
+		color: $color-blue-dark-2;
+	}
+}

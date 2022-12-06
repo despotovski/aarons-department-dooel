@@ -1,0 +1,11 @@
+.bulk-actions {
+  display: inline;
+  background-color: $color-green-1;
+  border-radius: $border-radius-sm;
+  padding: calc-rem(6px);
+  
+  .svg-inline {
+    margin: 0 calc-rem(4px);
+    font-size: calc-rem(14px);
+  }
+}

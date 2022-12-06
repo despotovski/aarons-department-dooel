@@ -1,0 +1,43 @@
+<?php
+
+return [
+    'manage_creators' => 'Gérer les créateurs',
+    'add_new' => 'Ajouter un nouveau créateur',
+    'edit_creator' => 'Modifier le créateur – {{ creatorName }}',
+    'search_name_wallet' => 'Recherche par nom ou portefeuille',
+    'status' => [
+        'unpublished' => 'Non publié',
+        'published' => 'Publié',
+    ],
+    'success' => 'Le créateur a été ajouté avec succès',
+    'success_updated' => 'Le créateur a été mis à jour avec succès',
+    'unpublished_warning' => 'Le créateur ne peut pas être dépublié car il existe au moins une collection publiée qui lui est liée.',
+    'created_on' => 'Créé le {{ creationDate }} par {{ createdByUser }}',
+    'last_update' => 'Dernière mise à jour le {{ updatedDate }} par {{ updatedByUser }}',
+    'delete_creator' => 'SUPPRIMER L\'AUTEUR',
+    'back_to_list' => 'RETOUR À LA LISTE DES CRÉATEURS',
+    'success_deleted' => 'Le créateur a été supprimé avec succès',
+    'delete_warning' => 'Vous n\'êtes pas autorisé à supprimer ce créateur, car il est toujours lié à au moins une collection ou un élément.',
+    'pop_up_message' => 'Voulez-vous vraiment supprimer définitivement ce créateur? Cette action n\'est pas réversible.',
+    'creators' => '{{ creatorsCount }}créateurs',
+    'creator_id' => 'ID de créateur',
+    'public' => [
+        'about_title' => 'À propos de nos créateurs',
+        'about_description' => 'Chaque créateur qui possède une collection sur WawStreet a été sélectionné par notre équipe de curateurs pour en garantir la qualité et l\'authenticité. Parcourez les différents créateurs et découvrez leurs œuvres !',
+        'creations' => 'Créations',
+        'for_sale' => 'À vendre',
+        'key_figures' => 'Les chiffres clés de {{creator}}',
+        'about_title_details' => 'À propos de {{créateur}}',
+        'list_of_creators' => 'Liste de nos créateurs',
+        'grid_view' => 'Vue Grille',
+        'list_view' => 'Affichage de liste',
+    ],
+    'all' => 'Tout',
+    'pinned_as_top_creator' => 'Épinglé comme meilleur créateur',
+    'highlighted_in_home_page' => 'Mis en évidence dans la page d\'accueil',
+    'home_page' => 'Page d\'accueil',
+    'creations_in_progress' => '
+Création de NFT en cours...',
+    'cover_image_details' => '<strong>Formats de fichiers acceptés:</strong> JPEG, PNG, GIF <br> <strong>Taille maximale du fichier:</strong> 2 MB <br> <strong>Mo Taille d\'image recommandée:</strong> A définir',
+    'profile_image_details' => '<strong>Formats de fichiers acceptés:</strong> JPEG, PNG, GIF <br> <strong>Taille maximale du fichier:</strong> 2 MB <br> <strong>Mo Taille d\'image recommandée:</strong> A définir',
+];

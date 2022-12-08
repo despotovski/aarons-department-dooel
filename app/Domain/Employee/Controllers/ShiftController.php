@@ -91,7 +91,7 @@ class ShiftController extends Controller
             ->where('full_name', $data['full_name'])
             ->first();
 
-        //Create employer
+        //Create employee
         if (!$employee) {
             $employee = $this->employeeBLL->create([
                 'full_name' => $data['full_name'],

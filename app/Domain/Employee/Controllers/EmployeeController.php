@@ -64,9 +64,6 @@ class EmployeeController extends Controller
         $payments = $this->shiftBLL->getEmployeePayments($employee->id);
 
         return DataTables::eloquent($payments)
-            ->editColumn('paid', function ($payment) {
-                return $payment->hours * $payment->rate_per_hour;
-            })
             ->make(true);
     }
 }

@@ -6,7 +6,6 @@ import ToastMessages from '../../ToastMessages'
 const LayoutAdmin = (props) => {
   return (
     <div id='main-layout' className='admin-page'>
-      <Header />
       <SideMenu />
       <main id='main'>
         <div className='container'>

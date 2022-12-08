@@ -17,12 +17,12 @@ const RemoveShift = ({ cancelCallback, successCallback, shiftId }) => {
       fields: [],
       buttons: {
         submit: {
-          text: t('ui.confirm')
+          text: 'Confirm'
         },
         additional: [
           {
             class: 'btn btn-primary-ghost mr-1',
-            text: t('ui.cancel'),
+            text: 'Cancel',
             type: 'button',
             onClick: () => {
               cancelCallback()

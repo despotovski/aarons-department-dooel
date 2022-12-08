@@ -162,6 +162,14 @@ var map = {
 		"/js/vendor",
 		"resources_js_domain_Error_js"
 	],
+	"./Shared/Constants": [
+		"./resources/js/domain/Shared/Constants.js",
+		"resources_js_domain_Shared_Constants_js"
+	],
+	"./Shared/Constants.js": [
+		"./resources/js/domain/Shared/Constants.js",
+		"resources_js_domain_Shared_Constants_js"
+	],
 	"./Shift/Create": [
 		"./resources/js/domain/Shift/Create.js",
 		"/js/vendor",
@@ -171,6 +179,16 @@ var map = {
 		"./resources/js/domain/Shift/Create.js",
 		"/js/vendor",
 		"resources_js_domain_Shift_Create_js"
+	],
+	"./Shift/Edit": [
+		"./resources/js/domain/Shift/Edit.js",
+		"/js/vendor",
+		"resources_js_domain_Shift_Edit_js"
+	],
+	"./Shift/Edit.js": [
+		"./resources/js/domain/Shift/Edit.js",
+		"/js/vendor",
+		"resources_js_domain_Shift_Edit_js"
 	],
 	"./Shift/Index": [
 		"./resources/js/domain/Shift/Index.js",

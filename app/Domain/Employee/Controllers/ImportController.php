@@ -4,6 +4,7 @@ namespace App\Domain\Employee\Controllers;
 
 use App\Domain\Employee\Imports\ImportList;
 use App\Http\Controllers\Controller;
+use App\Jobs\ImportFile;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 

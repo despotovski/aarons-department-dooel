@@ -7547,7 +7547,7 @@ var LayoutAdmin = function LayoutAdmin(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     id: "main-layout",
     className: "admin-page",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_SideMenu__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("main", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_SideMenu__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("main", {
       id: "main",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "container",
@@ -7886,6 +7886,34 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/domain/Shared/Constants.js":
+/*!*************************************************!*\
+  !*** ./resources/js/domain/Shared/Constants.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "SHIFT_TYPE": () => (/* binding */ SHIFT_TYPE),
+/* harmony export */   "TAXABLE": () => (/* binding */ TAXABLE),
+/* harmony export */   "TYPE_STATUS": () => (/* binding */ TYPE_STATUS)
+/* harmony export */ });
+var SHIFT_TYPE = {
+  DAY: 10,
+  NIGHT: 20
+};
+var TYPE_STATUS = {
+  STATUS_COMPLETE: 10,
+  STATUS_PENDING: 20,
+  STATUS_FAILED: 30
+};
+var TAXABLE = {
+  TAXABLE_YES: 10,
+  TAXABLE_NO: 20
+};
+
+/***/ }),
+
 /***/ "./resources/js/domain/Shift/Index.js":
 /*!********************************************!*\
   !*** ./resources/js/domain/Shift/Index.js ***!
@@ -7898,13 +7926,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_toast_notifications__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-toast-notifications */ "./node_modules/react-toast-notifications/dist/index.js");
-/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
+/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var _components_Shared_Layout_Admin_LayoutAdmin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Shared/Layout/Admin/LayoutAdmin */ "./resources/js/components/Shared/Layout/Admin/LayoutAdmin.js");
 /* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components */ "./resources/js/components/index.js");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils/index.js");
 /* harmony import */ var _RemoveShift__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./RemoveShift */ "./resources/js/domain/Shift/RemoveShift.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Shared_Constants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Shared/Constants */ "./resources/js/domain/Shared/Constants.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -7926,7 +7956,7 @@ var Index = function Index() {
 
   var tableRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
 
-  var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_8__.useTranslation)(),
+  var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_9__.useTranslation)(),
       t = _useTranslation.t;
 
   var columns = [{
@@ -7947,6 +7977,19 @@ var Index = function Index() {
     Header: 'Employee',
     accessor: 'employee.full_name',
     name: 'employee',
+    orderable: false,
+    disableSortBy: true,
+    searchable: false,
+    disableFilters: true,
+    search: {
+      value: '',
+      regex: 'true'
+    }
+  }, {
+    id: 'employer',
+    Header: 'Employer',
+    accessor: 'employee.employer.name',
+    name: 'employer',
     orderable: false,
     disableSortBy: true,
     searchable: false,
@@ -8007,7 +8050,7 @@ var Index = function Index() {
     Cell: function Cell(_ref3) {
       var value = _ref3.value,
           row = _ref3.row;
-      return value === 1 ? 'Yes' : 'No';
+      return value === _Shared_Constants__WEBPACK_IMPORTED_MODULE_7__.TAXABLE.TAXABLE_YES ? 'Yes' : 'No';
     }
   }, {
     id: 'status',
@@ -8021,6 +8064,20 @@ var Index = function Index() {
     search: {
       value: '',
       regex: 'true'
+    },
+    Cell: function Cell(_ref4) {
+      var value = _ref4.value,
+          row = _ref4.row;
+
+      if (row.original.status === _Shared_Constants__WEBPACK_IMPORTED_MODULE_7__.TYPE_STATUS.STATUS_COMPLETE) {
+        return 'Complete';
+      } else if (row.original.status === _Shared_Constants__WEBPACK_IMPORTED_MODULE_7__.TYPE_STATUS.STATUS_FAILED) {
+        return 'Failed';
+      } else if (row.original.status === _Shared_Constants__WEBPACK_IMPORTED_MODULE_7__.TYPE_STATUS.STATUS_PENDING) {
+        return 'Pending';
+      }
+
+      return '-';
     }
   }, {
     id: 'type',
@@ -8034,6 +8091,11 @@ var Index = function Index() {
     search: {
       value: '',
       regex: 'true'
+    },
+    Cell: function Cell(_ref5) {
+      var value = _ref5.value,
+          row = _ref5.row;
+      return value === _Shared_Constants__WEBPACK_IMPORTED_MODULE_7__.SHIFT_TYPE.DAY ? 'Day' : 'Night';
     }
   }, {
     id: 'paid_at',
@@ -8048,28 +8110,31 @@ var Index = function Index() {
       value: '',
       regex: 'true'
     },
-    Cell: function Cell(_ref4) {
-      var value = _ref4.value,
-          row = _ref4.row;
+    Cell: function Cell(_ref6) {
+      var value = _ref6.value,
+          row = _ref6.row;
       return value !== null && value !== void 0 ? value : '-';
     }
   }, {
-    id: 'total',
+    id: 'total_paid',
     Header: 'Total paid',
-    accessor: 'paid_at',
-    name: 'total',
+    accessor: 'total_paid',
+    name: 'total_paid',
     orderable: false,
-    disableSortBy: true,
+    disableSortBy: false,
     searchable: false,
-    disableFilters: true,
+    disableFilters: false,
     search: {
       value: '',
       regex: 'true'
     },
-    Cell: function Cell(_ref5) {
-      var value = _ref5.value,
-          row = _ref5.row;
-      return row.original.hours && row.original.rate_per_hour && row.original.status === 'Complete' ? '£ ' + row.original.hours * row.original.rate_per_hour : '-';
+    filterRule: {
+      rule: 'searchByTotalPaid'
+    },
+    Cell: function Cell(_ref7) {
+      var value = _ref7.value,
+          row = _ref7.row;
+      return row.original.hours && row.original.rate_per_hour ? '£ ' + row.original.hours * row.original.rate_per_hour : '-';
     }
   }, {
     id: 'actions',
@@ -8083,20 +8148,22 @@ var Index = function Index() {
       value: '',
       regex: 'false'
     },
-    Cell: function Cell(_ref6) {
-      var value = _ref6.value,
-          row = _ref6.row;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+    Cell: function Cell(_ref8) {
+      var value = _ref8.value,
+          row = _ref8.row;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
         className: "flex",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_utils__WEBPACK_IMPORTED_MODULE_5__.Link, {
-            href: "#",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components__WEBPACK_IMPORTED_MODULE_4__.IconToolsEdit, {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_utils__WEBPACK_IMPORTED_MODULE_5__.Link, {
+            href: (0,_utils__WEBPACK_IMPORTED_MODULE_5__.route)(links.shift.edit, {
+              shift: row.original.id
+            }),
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components__WEBPACK_IMPORTED_MODULE_4__.IconToolsEdit, {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
             onClick: function onClick() {
               return handleDeleteShift(row.original.id);
             },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components__WEBPACK_IMPORTED_MODULE_4__.IconDelete, {})
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components__WEBPACK_IMPORTED_MODULE_4__.IconDelete, {})
           })]
         })
       });
@@ -8106,7 +8173,7 @@ var Index = function Index() {
   var handleDeleteShift = function handleDeleteShift(shiftId) {
     var title = 'Delete a shift';
 
-    var body = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_RemoveShift__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    var body = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_RemoveShift__WEBPACK_IMPORTED_MODULE_6__["default"], {
       shiftId: shiftId,
       cancelCallback: handleDeleteShiftCancelCallback,
       successCallback: handleDeleteShiftSuccessCallback
@@ -8129,24 +8196,24 @@ var Index = function Index() {
     modalRef.current.close();
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_components_Shared_Layout_Admin_LayoutAdmin__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_components_Shared_Layout_Admin_LayoutAdmin__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
       className: "container mt-xxl",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         className: "flex-space-between",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: "pb-md",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h1", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h1", {
             className: "pb-0 page-header",
             children: "Shifts"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
           href: links.shift.create,
           type: "button",
           className: "btn btn-primary mh-xs",
           children: "Create Shift"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components__WEBPACK_IMPORTED_MODULE_4__.DataTable, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components__WEBPACK_IMPORTED_MODULE_4__.DataTable, {
         ref: tableRef,
         columns: columns,
         fetchUrl: links.shift.get,
@@ -8158,7 +8225,7 @@ var Index = function Index() {
           }]
         }
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components__WEBPACK_IMPORTED_MODULE_4__.ReactModal, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components__WEBPACK_IMPORTED_MODULE_4__.ReactModal, {
       ref: modalRef,
       className: "ReactModal__Content--Medium"
     })]
@@ -8215,11 +8282,11 @@ var RemoveShift = function RemoveShift(_ref) {
       fields: [],
       buttons: {
         submit: {
-          text: t('ui.confirm')
+          text: 'Confirm'
         },
         additional: [{
           "class": 'btn btn-primary-ghost mr-1',
-          text: t('ui.cancel'),
+          text: 'Cancel',
           type: 'button',
           onClick: function onClick() {
             cancelCallback();
@@ -8897,4 +8964,4 @@ validatorjs_dist_validator_min__WEBPACK_IMPORTED_MODULE_0___default().register('
 /***/ })
 
 }]);
-//# sourceMappingURL=resources_js_domain_Shift_Index_js.js.map?id=818c9bd81fad0dd4
+//# sourceMappingURL=resources_js_domain_Shift_Index_js.js.map?id=a63cedbf3474bdf8

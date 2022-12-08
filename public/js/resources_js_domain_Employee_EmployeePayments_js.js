@@ -7674,17 +7674,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _ImportList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImportList */ "./resources/js/domain/Employee/ImportList.js");
-/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components */ "./resources/js/components/index.js");
-/* harmony import */ var react_toast_notifications__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toast-notifications */ "./node_modules/react-toast-notifications/dist/index.js");
-/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components */ "./resources/js/components/index.js");
+/* harmony import */ var react_toast_notifications__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toast-notifications */ "./node_modules/react-toast-notifications/dist/index.js");
+/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -7694,20 +7688,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var EmployeePayments = function EmployeePayments() {
-  var links = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.usePage)().props.links;
+  var links = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props.links;
   var modalRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
 
-  var _useToasts = (0,react_toast_notifications__WEBPACK_IMPORTED_MODULE_3__.useToasts)(),
+  var _useToasts = (0,react_toast_notifications__WEBPACK_IMPORTED_MODULE_2__.useToasts)(),
       addToast = _useToasts.addToast;
 
   var tableRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
 
-  var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_8__.useTranslation)(),
+  var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_5__.useTranslation)(),
       t = _useTranslation.t;
 
   var columns = [{
     id: 'full_name',
-    Header: t('fields.name'),
+    Header: 'Full Name',
     accessor: 'full_name',
     name: 'full_name',
     headerClassName: 'cell-width',
@@ -7734,9 +7728,9 @@ var EmployeePayments = function EmployeePayments() {
       regex: 'true'
     }
   }];
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "container mt-xxl",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components__WEBPACK_IMPORTED_MODULE_2__.DataTable, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.DataTable, {
       ref: tableRef,
       columns: columns,
       fetchUrl: links.employee.get,
@@ -7747,7 +7741,7 @@ var EmployeePayments = function EmployeePayments() {
           desc: true
         }]
       }
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components__WEBPACK_IMPORTED_MODULE_2__.ReactModal, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.ReactModal, {
       ref: modalRef,
       className: "ReactModal__Content--Medium"
     })]
@@ -7755,123 +7749,6 @@ var EmployeePayments = function EmployeePayments() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Index);
-
-/***/ }),
-
-/***/ "./resources/js/domain/Employee/ImportList.js":
-/*!****************************************************!*\
-  !*** ./resources/js/domain/Employee/ImportList.js ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components */ "./resources/js/components/index.js");
-/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils/index.js");
-/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-
-
-
-
-var ImportList = function ImportList(_ref) {
-  var cancelCallback = _ref.cancelCallback,
-      successCallback = _ref.successCallback;
-
-  var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_6__.useTranslation)(),
-      t = _useTranslation.t;
-
-  var links = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.links;
-  var formRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(formik__WEBPACK_IMPORTED_MODULE_4__.Formik, {
-      innerRef: formRef,
-      initialValues: {},
-      enableReinitialize: true,
-      validate: function validate(values) {
-        var rules = {
-          file: 'required'
-        };
-        return (0,_utils__WEBPACK_IMPORTED_MODULE_3__.validateFormData)(values, rules);
-      },
-      onSubmit: function onSubmit(values, _ref2) {
-        var setSubmitting = _ref2.setSubmitting,
-            setErrors = _ref2.setErrors;
-        var data = new FormData(); // eslint-disable-line
-
-        data.append('file', values.file);
-        _utils__WEBPACK_IMPORTED_MODULE_3__.api.post(links.employee["import"], data, {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
-        }).then(function (res) {
-          setSubmitting(false);
-          successCallback(res);
-        })["catch"](function (error) {
-          setSubmitting(false);
-        });
-      },
-      validateOnChange: false,
-      validateOnBlur: false,
-      children: function children(_ref3) {
-        var values = _ref3.values,
-            handleSubmit = _ref3.handleSubmit,
-            isSubmitting = _ref3.isSubmitting,
-            setFieldValue = _ref3.setFieldValue;
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          className: "form-container",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
-            onSubmit: handleSubmit,
-            className: "form-class row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-              className: "col-md-12",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.FileUpload, {
-                formField: {
-                  name: 'file',
-                  label: t('nft.import_modal.import_field'),
-                  placeholder: t('nft.import_modal.import_field'),
-                  accept: 'application/vnd.ms-excel, .xlsx, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-                },
-                value: values.file,
-                onChange: function onChange(e) {
-                  setFieldValue('file', e);
-                }
-              }, 'test_input')
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-              className: "form-footer form-footer-right col-md-12",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-                className: "btn btn-primary-ghost",
-                type: "button",
-                onClick: function onClick() {
-                  return cancelCallback();
-                },
-                children: t('ui.cancel')
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-                className: "btn btn-primary",
-                type: "submit",
-                disabled: isSubmitting,
-                children: t('ui.submit')
-              })]
-            })]
-          })
-        });
-      }
-    })
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImportList);
 
 /***/ }),
 
@@ -8529,4 +8406,4 @@ validatorjs_dist_validator_min__WEBPACK_IMPORTED_MODULE_0___default().register('
 /***/ })
 
 }]);
-//# sourceMappingURL=resources_js_domain_Employee_EmployeePayments_js.js.map?id=b498ffb393c4cff8
+//# sourceMappingURL=resources_js_domain_Employee_EmployeePayments_js.js.map?id=59ec711e59769e33

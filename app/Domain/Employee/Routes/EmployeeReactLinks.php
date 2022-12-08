@@ -19,6 +19,8 @@ class EmployeeReactLinks
                 'get' => route('shift.get'),
                 'create' => route('shift.create'),
                 'store' => route('shift.store'),
+                'edit' => route('shift.edit', ['shift' => '%shift%']),
+                'update' => route('shift.update', ['shift' => '%shift%']),
                 'destroy' => route('shift.destroy', ['shift' => '%shift%'])
             ]
         ];

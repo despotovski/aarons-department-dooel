@@ -7709,11 +7709,11 @@ var RemoveShift = function RemoveShift(_ref) {
       fields: [],
       buttons: {
         submit: {
-          text: t('ui.confirm')
+          text: 'Confirm'
         },
         additional: [{
           "class": 'btn btn-primary-ghost mr-1',
-          text: t('ui.cancel'),
+          text: 'Cancel',
           type: 'button',
           onClick: function onClick() {
             cancelCallback();
@@ -8391,4 +8391,4 @@ validatorjs_dist_validator_min__WEBPACK_IMPORTED_MODULE_0___default().register('
 /***/ })
 
 }]);
-//# sourceMappingURL=resources_js_domain_Shift_RemoveShift_js.js.map?id=8958bc9806dece81
+//# sourceMappingURL=resources_js_domain_Shift_RemoveShift_js.js.map?id=b9205eb46f69e3ee

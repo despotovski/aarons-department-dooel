@@ -3,9 +3,10 @@ import { useToasts } from 'react-toast-notifications'
 import { useTranslation } from 'react-i18next'
 import { usePage } from '@inertiajs/inertia-react'
 import LayoutAdmin from '../../components/Shared/Layout/Admin/LayoutAdmin'
-import { DataTable, IconChevronLeft, IconDelete, IconEyeVisibility, IconToolsEdit, ReactModal } from '../../components'
-import { Link } from '../../utils'
+import { DataTable, IconDelete, IconEyeVisibility, IconToolsEdit, ReactModal } from '../../components'
+import { Link, route } from '../../utils'
 import RemoveShift from './RemoveShift'
+import { SHIFT_TYPE, TYPE_STATUS, TAXABLE } from '../Shared/Constants'
 
 const Index = () => {
   const { links } = usePage().props
@@ -31,6 +32,17 @@ const Index = () => {
       Header: 'Employee',
       accessor: 'employee.full_name',
       name: 'employee',
+      orderable: false,
+      disableSortBy: true,
+      searchable: false,
+      disableFilters: true,
+      search: { value: '', regex: 'true' }
+    },
+    {
+      id: 'employer',
+      Header: 'Employer',
+      accessor: 'employee.employer.name',
+      name: 'employer',
       orderable: false,
       disableSortBy: true,
       searchable: false,
@@ -76,7 +88,7 @@ const Index = () => {
       disableFilters: true,
       search: { value: '', regex: 'true' },
       Cell: ({ value, row }) => {
-        return value === 1 ? 'Yes' : 'No'
+        return value === TAXABLE.TAXABLE_YES ? 'Yes' : 'No'
       }
     },
     {
@@ -88,7 +100,17 @@ const Index = () => {
       disableSortBy: false,
       searchable: false,
       disableFilters: true,
-      search: { value: '', regex: 'true' }
+      search: { value: '', regex: 'true' },
+      Cell: ({ value, row }) => {
+        if (row.original.status === TYPE_STATUS.STATUS_COMPLETE) {
+          return ('Complete')
+        } else if (row.original.status === TYPE_STATUS.STATUS_FAILED) {
+          return ('Failed')
+        } else if (row.original.status === TYPE_STATUS.STATUS_PENDING) {
+          return ('Pending')
+        }
+        return '-'
+      }
     },
     {
       id: 'type',
@@ -99,7 +121,10 @@ const Index = () => {
       disableSortBy: false,
       searchable: false,
       disableFilters: true,
-      search: { value: '', regex: 'true' }
+      search: { value: '', regex: 'true' },
+      Cell: ({ value, row }) => {
+        return value === SHIFT_TYPE.DAY ? 'Day' : 'Night'
+      }
     },
     {
       id: 'paid_at',
@@ -116,17 +141,20 @@ const Index = () => {
       }
     },
     {
-      id: 'total',
+      id: 'total_paid',
       Header: 'Total paid',
-      accessor: 'paid_at',
-      name: 'total',
+      accessor: 'total_paid',
+      name: 'total_paid',
       orderable: false,
-      disableSortBy: true,
+      disableSortBy: false,
       searchable: false,
-      disableFilters: true,
+      disableFilters: false,
       search: { value: '', regex: 'true' },
+      filterRule: {
+        rule: 'searchByTotalPaid'
+      },
       Cell: ({ value, row }) => {
-        return row.original.hours && row.original.rate_per_hour && row.original.status === 'Complete'
+        return row.original.hours && row.original.rate_per_hour
           ? '£ ' + row.original.hours * row.original.rate_per_hour
           : '-'
       }
@@ -144,7 +172,7 @@ const Index = () => {
         return (
           <div className='flex'>
             <>
-              <Link href='#'>
+              <Link href={route(links.shift.edit, { shift: row.original.id})}>
                 <IconToolsEdit />
               </Link>
               <button onClick={() => handleDeleteShift(row.original.id)}>

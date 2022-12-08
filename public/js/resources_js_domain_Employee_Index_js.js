@@ -7547,7 +7547,7 @@ var LayoutAdmin = function LayoutAdmin(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     id: "main-layout",
     className: "admin-page",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_SideMenu__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("main", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_SideMenu__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("main", {
       id: "main",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "container",
@@ -7967,8 +7967,8 @@ var ImportList = function ImportList(_ref) {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.FileUpload, {
                 formField: {
                   name: 'file',
-                  label: t('nft.import_modal.import_field'),
-                  placeholder: t('nft.import_modal.import_field'),
+                  label: 'Choose file or drag \'n drop',
+                  placeholder: 'Choose file or drag \'n drop',
                   accept: 'application/vnd.ms-excel, .xlsx, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
                 },
                 value: values.file,
@@ -7984,12 +7984,12 @@ var ImportList = function ImportList(_ref) {
                 onClick: function onClick() {
                   return cancelCallback();
                 },
-                children: t('ui.cancel')
+                children: "Cancel"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
                 className: "btn btn-primary",
                 type: "submit",
                 disabled: isSubmitting,
-                children: t('ui.submit')
+                children: "Submit"
               })]
             })]
           })
@@ -8049,7 +8049,7 @@ var Index = function Index() {
 
   var columns = [{
     id: 'full_name',
-    Header: t('fields.name'),
+    Header: 'Full Name',
     accessor: 'full_name',
     name: 'full_name',
     headerClassName: 'cell-width',
@@ -8805,4 +8805,4 @@ validatorjs_dist_validator_min__WEBPACK_IMPORTED_MODULE_0___default().register('
 /***/ })
 
 }]);
-//# sourceMappingURL=resources_js_domain_Employee_Index_js.js.map?id=cd98e11645585441
+//# sourceMappingURL=resources_js_domain_Employee_Index_js.js.map?id=f48deec9e344a73d

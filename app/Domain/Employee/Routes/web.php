@@ -30,5 +30,7 @@ Route::prefix('shift')
         Route::get('/get', 'ShiftController@get')->name('shift.get');
         Route::get('/create', 'ShiftController@create')->name('shift.create');
         Route::post('/', 'ShiftController@store')->name('shift.store');
+        Route::get('/{shift}/edit', 'ShiftController@edit')->name('shift.edit');
+        Route::post('/{shift}/', 'ShiftController@update')->name('shift.update');
         Route::delete('/{shift}', 'ShiftController@destroy')->name('shift.destroy');
     });

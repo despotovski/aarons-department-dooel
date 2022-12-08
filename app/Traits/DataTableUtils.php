@@ -107,5 +107,14 @@ trait DataTableUtils
         }
     }
 
-   
+    public function searchByTotalPaid($query, $column)
+    {
+        if ($column['search']['value']) {
+            $value = str_replace(['^', '$'], '', $column['search']['value']);
+            $sql = "total_paid > " . $value;
+            if (!empty($sql)) {
+                $query->whereRaw($sql);
+            }
+        }
+    }
 }

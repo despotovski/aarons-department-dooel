@@ -2,9 +2,11 @@
 
 namespace App\Domain\Employee\BLL\Shift;
 
+use App\Domain\Employee\Models\Shift;
 use App\DomainUtils\BaseBLL\BaseBLL;
 use App\DomainUtils\BaseBLL\BaseBLLFileUtils;
 use App\Domain\Employee\DAL\Shift\ShiftDALInterface;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @property ShiftDALInterface DAL
@@ -21,46 +23,27 @@ class ShiftBLL extends BaseBLL implements ShiftBLLInterface
     public function getAllShifts()
     {
         return $this->DAL->query()
-            ->with('employee')
+            ->with('employee.employer')
             ->select('shifts.*');
-    }
-
-    public function getRatePerHourEmployee($employee)
-    {
-        return $this->DAL->query()
-            ->where('employee_id', $employee)
-            ->pluck('rate_per_hour')
-            ->toArray();
-    }
-
-    public function getHoursPerEmployee($employee)
-    {
-        return $this->DAL->query()
-            ->where('employee_id', $employee)
-            ->pluck('hours')
-            ->toArray();
     }
 
     public function getAveragePayPerHour($employee)
     {
-        $hours = $this->getHoursPerEmployee($employee);
-        $rates = $this->getRatePerHourEmployee($employee);
-        $sum = array_sum($hours) * array_sum($rates);
-
-        return $sum / array_sum($hours);
+        return DB::table('shifts')
+            ->where('employee_id', $employee)
+            ->select(DB::raw('sum(hours * rate_per_hour) / sum(hours) as averagePayHour'))
+            ->first()
+            ->averagePayHour;
     }
+
 
     public function getAverageTotalPay($employee)
     {
-        $shifts = $this->DAL->query()
+        return DB::table('shifts')
             ->where('employee_id', $employee)
-            ->count();
-
-        $hours = $this->getHoursPerEmployee($employee);
-        $rates = $this->getRatePerHourEmployee($employee);
-        $sum = array_sum($hours) * array_sum($rates);
-
-        return $sum / $shifts;
+            ->select(DB::raw('sum(hours * rate_per_hour) as averageTotalPay'))
+            ->first()
+            ->averageTotalPay;
     }
 
 
@@ -68,7 +51,7 @@ class ShiftBLL extends BaseBLL implements ShiftBLLInterface
     {
         return $this->DAL->query()
             ->where('employee_id', $employee)
-            ->whereNotNull('paid_at')
+            ->where('status', Shift::TYPE_STATUS_COMPLETE)
             ->take(5)
             ->select('shifts.*');
     }
@@ -78,15 +61,15 @@ class ShiftBLL extends BaseBLL implements ShiftBLLInterface
         return [
             [
                 'label' => 'Pending',
-                'value' => 'Pending'
+                'value' => Shift::TYPE_STATUS_PENDING
             ],
             [
                 'label' => 'Complete',
-                'value' => 'Complete',
+                'value' => Shift::TYPE_STATUS_COMPLETE
             ],
             [
                 'label' => 'Failed',
-                'value' => 'Failed'
+                'value' => Shift::TYPE_STATUS_FAILED
             ]
         ];
     }
@@ -96,11 +79,11 @@ class ShiftBLL extends BaseBLL implements ShiftBLLInterface
         return [
             [
                 'label' => 'Yes',
-                'value' => 1
+                'value' => Shift::TYPE_TAXABLE_YES
             ],
             [
                 'label' => 'No',
-                'value' => 0
+                'value' => Shift::TYPE_TAXABLE_NO
             ]
         ];
     }
@@ -110,11 +93,11 @@ class ShiftBLL extends BaseBLL implements ShiftBLLInterface
         return [
             [
                 'label' => 'Day',
-                'value' => 'Day'
+                'value' => Shift::TYPE_SHIFT_DAY
             ],
             [
                 'label' => 'Night',
-                'value' => 'Night'
+                'value' => Shift::TYPE_SHIFT_NIGHT
             ]
         ];
     }

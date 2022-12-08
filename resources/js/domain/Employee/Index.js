@@ -18,7 +18,7 @@ const Index = () => {
   const columns = [
     {
       id: 'full_name',
-      Header: t('fields.name'),
+      Header: 'Full Name',
       accessor: 'full_name',
       name: 'full_name',
       headerClassName: 'cell-width',

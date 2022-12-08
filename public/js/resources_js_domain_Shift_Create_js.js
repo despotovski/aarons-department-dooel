@@ -7547,7 +7547,7 @@ var LayoutAdmin = function LayoutAdmin(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     id: "main-layout",
     className: "admin-page",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_SideMenu__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("main", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_SideMenu__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("main", {
       id: "main",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "container",
@@ -8026,15 +8026,15 @@ var Create = function Create() {
         "class": 'form-footer col-12',
         submit: {
           "class": 'btn btn-primary',
-          text: t('ui.update')
+          text: 'Update'
         },
         additional: [{
           "class": 'btn btn-primary-ghost',
           text: t('ui.cancel'),
-          type: 'button' // onClick: () => {
-          //   Inertia.visit(links.user.myProfile.index)
-          // }
-
+          type: 'button',
+          onClick: function onClick() {
+            _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__.Inertia.visit(links.shift.index);
+          }
         }]
       }
     };
@@ -8723,4 +8723,4 @@ validatorjs_dist_validator_min__WEBPACK_IMPORTED_MODULE_0___default().register('
 /***/ })
 
 }]);
-//# sourceMappingURL=resources_js_domain_Shift_Create_js.js.map?id=a104680071798af0
+//# sourceMappingURL=resources_js_domain_Shift_Create_js.js.map?id=8eb78ebaa6f50f3a

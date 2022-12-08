@@ -7744,8 +7744,8 @@ var ImportList = function ImportList(_ref) {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.FileUpload, {
                 formField: {
                   name: 'file',
-                  label: t('nft.import_modal.import_field'),
-                  placeholder: t('nft.import_modal.import_field'),
+                  label: 'Choose file or drag \'n drop',
+                  placeholder: 'Choose file or drag \'n drop',
                   accept: 'application/vnd.ms-excel, .xlsx, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
                 },
                 value: values.file,
@@ -7761,12 +7761,12 @@ var ImportList = function ImportList(_ref) {
                 onClick: function onClick() {
                   return cancelCallback();
                 },
-                children: t('ui.cancel')
+                children: "Cancel"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
                 className: "btn btn-primary",
                 type: "submit",
                 disabled: isSubmitting,
-                children: t('ui.submit')
+                children: "Submit"
               })]
             })]
           })
@@ -8434,4 +8434,4 @@ validatorjs_dist_validator_min__WEBPACK_IMPORTED_MODULE_0___default().register('
 /***/ })
 
 }]);
-//# sourceMappingURL=resources_js_domain_Employee_ImportList_js.js.map?id=e9f359c71eaa2c1b
+//# sourceMappingURL=resources_js_domain_Employee_ImportList_js.js.map?id=dc97bd840598682a

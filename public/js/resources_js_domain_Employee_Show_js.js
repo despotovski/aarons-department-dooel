@@ -7547,7 +7547,7 @@ var LayoutAdmin = function LayoutAdmin(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     id: "main-layout",
     className: "admin-page",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_SideMenu__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("main", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_SideMenu__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("main", {
       id: "main",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "container",
@@ -7898,12 +7898,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components */ "./resources/js/components/index.js");
-/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
+/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var react_toast_notifications__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toast-notifications */ "./node_modules/react-toast-notifications/dist/index.js");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils/index.js");
 /* harmony import */ var _components_Shared_Layout_Admin_LayoutAdmin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/Shared/Layout/Admin/LayoutAdmin */ "./resources/js/components/Shared/Layout/Admin/LayoutAdmin.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Shared_Constants__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Shared/Constants */ "./resources/js/domain/Shared/Constants.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -7922,7 +7924,7 @@ var Show = function Show() {
       averageTotalPaid = _usePage$props.averageTotalPaid;
   var tableRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
 
-  var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_7__.useTranslation)(),
+  var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_8__.useTranslation)(),
       t = _useTranslation.t;
 
   var formData = react__WEBPACK_IMPORTED_MODULE_0__.useMemo(function () {
@@ -7935,8 +7937,8 @@ var Show = function Show() {
         element: _components__WEBPACK_IMPORTED_MODULE_1__.FORM_ELEMENT_TYPES.INPUT,
         type: 'text',
         name: 'type_status',
-        label: 'Full Name',
-        placeholder: t('fields.status'),
+        label: 'Status',
+        placeholder: 'Status',
         value: employee.full_name,
         wrapper: {
           element: 'div',
@@ -7947,7 +7949,7 @@ var Show = function Show() {
         type: 'text',
         name: 'averagePay',
         label: 'Average pay per hour',
-        placeholder: t('fields.shop'),
+        placeholder: 'Average pay per hour',
         value: '£ ' + averagePay,
         wrapper: {
           element: 'div',
@@ -7958,7 +7960,7 @@ var Show = function Show() {
         type: 'text',
         name: 'averageTotalPay',
         label: 'Average Total Paid',
-        placeholder: t('fields.shop'),
+        placeholder: 'Average Total Paid',
         value: '£ ' + averageTotalPaid,
         wrapper: {
           element: 'div',
@@ -7980,6 +7982,20 @@ var Show = function Show() {
     search: {
       value: '',
       regex: 'true'
+    },
+    Cell: function Cell(_ref) {
+      var value = _ref.value,
+          row = _ref.row;
+
+      if (row.original.status === _Shared_Constants__WEBPACK_IMPORTED_MODULE_6__.TYPE_STATUS.STATUS_COMPLETE) {
+        return 'Complete';
+      } else if (row.original.status === _Shared_Constants__WEBPACK_IMPORTED_MODULE_6__.TYPE_STATUS.STATUS_FAILED) {
+        return 'Failed';
+      } else if (row.original.status === _Shared_Constants__WEBPACK_IMPORTED_MODULE_6__.TYPE_STATUS.STATUS_PENDING) {
+        return 'Pending';
+      }
+
+      return '-';
     }
   }, {
     id: 'paid',
@@ -7995,10 +8011,10 @@ var Show = function Show() {
       value: '',
       regex: 'true'
     },
-    Cell: function Cell(_ref) {
-      var value = _ref.value,
-          row = _ref.row;
-      return '£ ' + value;
+    Cell: function Cell(_ref2) {
+      var value = _ref2.value,
+          row = _ref2.row;
+      return '£ ' + row.original.hours * row.original.rate_per_hour;
     }
   }, {
     id: 'paid_at',
@@ -8013,25 +8029,30 @@ var Show = function Show() {
     search: {
       value: '',
       regex: 'true'
+    },
+    Cell: function Cell(_ref3) {
+      var value = _ref3.value,
+          row = _ref3.row;
+      return row.original.paid_at ? '£ ' + row.original.paid_at : '-';
     }
   }];
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Shared_Layout_Admin_LayoutAdmin__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Shared_Layout_Admin_LayoutAdmin__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
       className: "container mt-xxl",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("h1", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("h1", {
         className: "page-header",
         children: ["General info -  ", employee.full_name]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_utils__WEBPACK_IMPORTED_MODULE_4__.Link, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_utils__WEBPACK_IMPORTED_MODULE_4__.Link, {
         href: links.employee.index,
         className: "btn-back",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.IconChevronLeft, {}), "Back to list of employees"]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.IconChevronLeft, {}), "Back to list of employees"]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
         className: "form-container mt-xxl",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.FormBuilder, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.FormBuilder, {
           formData: formData,
           showOnly: true
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.DataTable, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.DataTable, {
         ref: tableRef,
         columns: columns,
         fetchUrl: (0,_utils__WEBPACK_IMPORTED_MODULE_4__.route)(links.employee.getEmployeePayments, {
@@ -8050,6 +8071,34 @@ var Show = function Show() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Show);
+
+/***/ }),
+
+/***/ "./resources/js/domain/Shared/Constants.js":
+/*!*************************************************!*\
+  !*** ./resources/js/domain/Shared/Constants.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "SHIFT_TYPE": () => (/* binding */ SHIFT_TYPE),
+/* harmony export */   "TAXABLE": () => (/* binding */ TAXABLE),
+/* harmony export */   "TYPE_STATUS": () => (/* binding */ TYPE_STATUS)
+/* harmony export */ });
+var SHIFT_TYPE = {
+  DAY: 10,
+  NIGHT: 20
+};
+var TYPE_STATUS = {
+  STATUS_COMPLETE: 10,
+  STATUS_PENDING: 20,
+  STATUS_FAILED: 30
+};
+var TAXABLE = {
+  TAXABLE_YES: 10,
+  TAXABLE_NO: 20
+};
 
 /***/ }),
 
@@ -8707,4 +8756,4 @@ validatorjs_dist_validator_min__WEBPACK_IMPORTED_MODULE_0___default().register('
 /***/ })
 
 }]);
-//# sourceMappingURL=resources_js_domain_Employee_Show_js.js.map?id=928a46fbdde89bb3
+//# sourceMappingURL=resources_js_domain_Employee_Show_js.js.map?id=0c3373777b839658

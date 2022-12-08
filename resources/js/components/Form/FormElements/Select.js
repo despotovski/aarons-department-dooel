@@ -12,8 +12,7 @@ export const Select = ({ formField, value, onChange, errors, showOnly }) => {
   const customStyle = {
     menu: base => ({ ...base, zIndex: 9999, marginTop: '0px', position: 'absolute', bottom: '0', backgroundColor: 'white' }),
     menuList: base => ({ ...base, backgroundColor: 'white', marginBottom: '-10px', bottom: '10px', borderRadius: '0px', border: '2px solid #C9CBCE', borderTop: 'none' })
-  }
-
+}
   if (showOnly) {
     return (
       <FieldWrapper wrapper={formField.wrapper}>

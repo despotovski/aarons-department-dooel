@@ -4,16 +4,17 @@ import { useTranslation } from 'react-i18next'
 import { usePage } from '@inertiajs/inertia-react'
 import { Inertia } from '@inertiajs/inertia'
 import LayoutAdmin from '../../components/Shared/Layout/Admin/LayoutAdmin'
-import { Link } from '../../utils'
+import { Link, route } from '../../utils'
+import { TAXABLE } from '../Shared/Constants'
 
 const Create = () => {
   const { t } = useTranslation()
-  const { links, options } = usePage().props
+  const { links, options, shift } = usePage().props
 
   const formData = useMemo(
     () => ({
       form: {
-        url: links.shift.store,
+        url: route(links.shift.update, { shift: shift.id }),
         method: 'post',
         wrapper: {
           element: 'div',
@@ -27,7 +28,9 @@ const Create = () => {
           name: 'full_name',
           label: 'Employee name',
           placeholder: 'Employee name',
+          value: shift.employee.full_name,
           rules: 'required',
+          isDisabled: true,
           wrapper: {
             element: 'div',
             class: 'col-6'
@@ -39,7 +42,9 @@ const Create = () => {
           name: 'name',
           label: 'Employer name',
           placeholder: 'Employer name',
+          value: shift.employee.employer.name,
           rules: 'required',
+          isDisabled: true,
           wrapper: {
             element: 'div',
             class: 'col-6'
@@ -50,6 +55,7 @@ const Create = () => {
           name: 'date',
           label: 'Date',
           placeholder: 'Date',
+          value: shift.date ? new Date(shift.date) : '',
           rules: 'required',
           wrapper: {
             element: 'div',
@@ -62,6 +68,7 @@ const Create = () => {
           name: 'hours',
           label: 'Hours',
           placeholder: 'Hours',
+          value: shift.hours ? shift.hours : '',
           rules: 'required',
           wrapper: {
             element: 'div',
@@ -74,6 +81,7 @@ const Create = () => {
           name: 'rate_per_hour',
           label: 'Rate per hour',
           placeholder: 'Rate per hour',
+          value: shift.rate_per_hour ? shift.rate_per_hour : '',
           rules: 'required',
           wrapper: {
             element: 'div',
@@ -87,6 +95,7 @@ const Create = () => {
           label: 'Taxable',
           placeholder: 'Taxable',
           options: options.taxable,
+          value: shift.taxable,
           rules: 'required',
           wrapper: {
             element: 'div',
@@ -100,6 +109,7 @@ const Create = () => {
           label: 'Status',
           placeholder: 'Status',
           options: options.statuses,
+          value: shift.status,
           rules: 'required',
           wrapper: {
             element: 'div',
@@ -113,6 +123,7 @@ const Create = () => {
           label: 'Type',
           placeholder: 'Type',
           options: options.type,
+          value: shift.type,
           rules: 'required',
           wrapper: {
             element: 'div',
@@ -124,7 +135,7 @@ const Create = () => {
         class: 'form-footer col-12',
         submit: {
           class: 'btn btn-primary',
-          text: 'Update'
+          text: t('ui.update')
         },
         additional: [
           {
@@ -146,7 +157,7 @@ const Create = () => {
       <section className='pv-xl'>
         <div className='container'>
           <div className='pb-md'>
-            <h1 className='pb-0 page-header'>Create shift</h1>
+            <h1 className='pb-0 page-header'>Edit shift</h1>
           </div>
 
           <Link href={links.shift.index} className='btn-back'>

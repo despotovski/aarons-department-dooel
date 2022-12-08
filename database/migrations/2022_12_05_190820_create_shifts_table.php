@@ -17,13 +17,13 @@ class CreateShiftsTable extends Migration
             $table->id();
             $table->date('date')->nullable();
             $table->float('hours')->nullable();
-            $table->string('rate_per_hour')->nullable();
+            $table->float('rate_per_hour')->nullable();
             $table->boolean('taxable');
-            $table->string('status');
-            $table->string('type');
+            $table->boolean('status');
+            $table->boolean('type');
+            $table->float('total_paid');
             $table->unsignedBigInteger('employee_id');
             $table->date('paid_at')->nullable();
-
             $table->timestamps();
         });
     }

@@ -5,6 +5,7 @@ import { usePage } from '@inertiajs/inertia-react'
 import { useToasts } from 'react-toast-notifications'
 import { Link, route } from '../../utils'
 import LayoutAdmin from '../../components/Shared/Layout/Admin/LayoutAdmin'
+import { TYPE_STATUS } from '../Shared/Constants'
 
 const Show = () => {
   const { links, employee, averagePay, averageTotalPaid } = usePage().props
@@ -22,8 +23,8 @@ const Show = () => {
           element: FORM_ELEMENT_TYPES.INPUT,
           type: 'text',
           name: 'type_status',
-          label: 'Full Name',
-          placeholder: t('fields.status'),
+          label: 'Status',
+          placeholder: 'Status',
           value: employee.full_name,
           wrapper: {
             element: 'div',
@@ -35,7 +36,7 @@ const Show = () => {
           type: 'text',
           name: 'averagePay',
           label: 'Average pay per hour',
-          placeholder: t('fields.shop'),
+          placeholder: 'Average pay per hour',
           value: '£ ' + averagePay,
           wrapper: {
             element: 'div',
@@ -47,7 +48,7 @@ const Show = () => {
           type: 'text',
           name: 'averageTotalPay',
           label: 'Average Total Paid',
-          placeholder: t('fields.shop'),
+          placeholder: 'Average Total Paid',
           value: '£ ' + averageTotalPaid,
           wrapper: {
             element: 'div',
@@ -70,7 +71,17 @@ const Show = () => {
       disableSortBy: true,
       searchable: false,
       disableFilters: true,
-      search: { value: '', regex: 'true' }
+      search: { value: '', regex: 'true' },
+      Cell: ({ value, row }) => {
+        if (row.original.status === TYPE_STATUS.STATUS_COMPLETE) {
+          return ('Complete')
+        } else if (row.original.status === TYPE_STATUS.STATUS_FAILED) {
+          return ('Failed')
+        } else if (row.original.status === TYPE_STATUS.STATUS_PENDING) {
+          return ('Pending')
+        }
+        return '-'
+      }
     },
     {
       id: 'paid',
@@ -84,7 +95,7 @@ const Show = () => {
       disableFilters: true,
       search: { value: '', regex: 'true' },
       Cell: ({ value, row }) => {
-        return '£ ' + value
+        return '£ ' + row.original.hours * row.original.rate_per_hour
       }
     },
     {
@@ -97,7 +108,10 @@ const Show = () => {
       disableSortBy: true,
       searchable: false,
       disableFilters: true,
-      search: { value: '', regex: 'true' }
+      search: { value: '', regex: 'true' },
+      Cell: ({ value, row }) => {
+        return row.original.paid_at ? '£ ' + row.original.paid_at : '-'
+      }
     }
   ]
 

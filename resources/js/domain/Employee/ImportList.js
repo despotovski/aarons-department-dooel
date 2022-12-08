@@ -62,8 +62,8 @@ const ImportList = ({ cancelCallback, successCallback }) => {
                   key='test_input'
                   formField={{
                     name: 'file',
-                    label: t('nft.import_modal.import_field'),
-                    placeholder: t('nft.import_modal.import_field'),
+                    label: 'Choose file or drag \'n drop',
+                    placeholder: 'Choose file or drag \'n drop',
                     accept: 'application/vnd.ms-excel, .xlsx, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
                   }}
                   value={values.file}
@@ -78,14 +78,14 @@ const ImportList = ({ cancelCallback, successCallback }) => {
                   type='button'
                   onClick={() => cancelCallback()}
                 >
-                  {t('ui.cancel')}
+                 Cancel
                 </button>
                 <button
                   className='btn btn-primary'
                   type='submit'
                   disabled={isSubmitting}
                 >
-                  {t('ui.submit')}
+                 Submit
                 </button>
               </div>
             </form>

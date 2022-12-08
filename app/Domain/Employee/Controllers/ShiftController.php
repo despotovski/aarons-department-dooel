@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Domain\Employee\BLL\Shift\ShiftBLLInterface;
 use App\Domain\Employee\Models\Shift;
 use App\Domain\Employee\Requests\ShiftRequest;
+use App\Traits\DataTableUtils;
 use Carbon\Carbon;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -18,6 +19,7 @@ use Yajra\DataTables\Facades\DataTables;
  */
 class ShiftController extends Controller
 {
+    use DataTableUtils;
     public function __construct(
         ShiftBLLInterface $shiftBLL,
         EmployerBLLInterface $employerBLL,
@@ -41,7 +43,9 @@ class ShiftController extends Controller
     {
         $shifts = $this->shiftBLL->getAllShifts();
 
-        return DataTables::eloquent($shifts)
+        return DataTables::eloquent($shifts)->filter(function ($query) {
+            $this->filterCustomRule($query);
+        })
             ->make(true);
     }
 
@@ -69,14 +73,26 @@ class ShiftController extends Controller
     {
         $data = $request->all();
 
-        $employer = $this->employerBLL->create([
-            'name' => $data['name']
-        ]);
+        $employer = $this->employerBLL->query()
+            ->where('name', $data['name'])
+            ->first();
 
-        $employee = $this->employeeBLL->create([
-            'full_name' => $data['full_name'],
-            'employer_id' => $employer->id
-        ]);
+        if (!$employer) {
+            $employer = $this->employerBLL->create([
+                'name' => $data['name']
+            ]);
+        }
+        //Employee
+        $employee = $this->employeeBLL->query()
+            ->where('full_name', $data['full_name'])
+            ->first();
+
+        if (!$employee) {
+            $employee = $this->employeeBLL->create([
+                'full_name' => $data['full_name'],
+                'employer_id' => $employer->id
+            ]);
+        }
 
         $this->shiftBLL->create([
             'employee_id' => $employee->id,
@@ -84,8 +100,8 @@ class ShiftController extends Controller
             'hours' => $data['hours'],
             'rate_per_hour' => $data['rate_per_hour'],
             'taxable' => $data['taxable'],
-            'status' => $data['taxable'],
-            'type' => $data['taxable']
+            'status' => $data['status'],
+            'type' => $data['type']
         ]);
 
         session()->flash('success', trans('members.success.add'));
@@ -99,7 +115,14 @@ class ShiftController extends Controller
      */
     public function edit(Shift $shift)
     {
-        //
+        return inertia('Shift/Edit', [
+            'shift' => $shift->load('employee.employer'),
+            'options' => [
+                'statuses' => $this->shiftBLL->getStatusOptions(),
+                'taxable' => $this->shiftBLL->getTaxableOptions(),
+                'type' => $this->shiftBLL->getTypeOptions(),
+            ]
+        ]);
     }
 
     /**
@@ -110,7 +133,19 @@ class ShiftController extends Controller
      */
     public function update(ShiftRequest $request, Shift $shift)
     {
-        //
+        $data = $request->all();
+
+        $this->shiftBLL->update($shift, [
+            'date' => Carbon::parse($data['date'])->toDateString(),
+            'hours' => $data['hours'],
+            'rate_per_hour' => $data['rate_per_hour'],
+            'taxable' => $data['taxable'] === 'Yes' ? Shift::TYPE_TAXABLE_YES : Shift::TYPE_TAXABLE_NO,
+            'status' => $data['status'] === 'Pending' ? Shift::TYPE_STATUS_PENDING : Shift::TYPE_STATUS_COMPLETE,
+            'type' => $data['type'] === 'Day' ? Shift::TYPE_SHIFT_DAY : Shift::TYPE_SHIFT_NIGHT
+        ]);
+
+        session()->flash('success', trans('Shift successfully updated'));
+        return redirect()->route('shift.index');
     }
 
     /**

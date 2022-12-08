@@ -93,7 +93,7 @@ class ImportList implements ToCollection
                     'type' => $data['type'],
                     'paid_at' => $data['paid_at'],
                     'employee_id' => $employee->id,
-                    'total_paid' => 1
+                    'total_paid' => 0
                 ]);
 
                 //Update shift with calculation

@@ -20,6 +20,7 @@ use Yajra\DataTables\Facades\DataTables;
 class ShiftController extends Controller
 {
     use DataTableUtils;
+
     public function __construct(
         ShiftBLLInterface $shiftBLL,
         EmployerBLLInterface $employerBLL,
@@ -73,20 +74,24 @@ class ShiftController extends Controller
     {
         $data = $request->all();
 
+        //Check if employer exist
         $employer = $this->employerBLL->query()
             ->where('name', $data['name'])
             ->first();
 
+        //Create employer
         if (!$employer) {
             $employer = $this->employerBLL->create([
                 'name' => $data['name']
             ]);
         }
-        //Employee
+
+        //Check if employee exist
         $employee = $this->employeeBLL->query()
             ->where('full_name', $data['full_name'])
             ->first();
 
+        //Create employer
         if (!$employee) {
             $employee = $this->employeeBLL->create([
                 'full_name' => $data['full_name'],
@@ -94,17 +99,24 @@ class ShiftController extends Controller
             ]);
         }
 
-        $this->shiftBLL->create([
+        //Creating shift
+        $shift = $this->shiftBLL->create([
             'employee_id' => $employee->id,
             'date' => Carbon::parse($data['date'])->toDateString(),
             'hours' => $data['hours'],
             'rate_per_hour' => $data['rate_per_hour'],
             'taxable' => $data['taxable'],
             'status' => $data['status'],
-            'type' => $data['type']
+            'type' => $data['type'],
+            'total_paid' => 0
         ]);
 
-        session()->flash('success', trans('members.success.add'));
+        //Updating shift with calculation
+        $this->shiftBLL->update($shift, [
+            'total_paid' => $shift->hours * $shift->rate_per_hour
+        ]);
+
+        session()->flash('success', trans('Shift was successfully created'));
         return redirect()->route('shift.index');
     }
 
@@ -142,9 +154,14 @@ class ShiftController extends Controller
             'taxable' => $data['taxable'] === 'Yes' ? Shift::TYPE_TAXABLE_YES : Shift::TYPE_TAXABLE_NO,
             'status' => $data['status'] === 'Pending' ? Shift::TYPE_STATUS_PENDING : Shift::TYPE_STATUS_COMPLETE,
             'type' => $data['type'] === 'Day' ? Shift::TYPE_SHIFT_DAY : Shift::TYPE_SHIFT_NIGHT
+         ]);
+
+        //Updating shift with calculation
+        $this->shiftBLL->update($shift, [
+            'total_paid' => $shift->hours * $shift->rate_per_hour
         ]);
 
-        session()->flash('success', trans('Shift successfully updated'));
+        session()->flash('success', trans('Shift was successfully updated'));
         return redirect()->route('shift.index');
     }
 

@@ -33,20 +33,6 @@ class ImportList implements ToCollection
 
         DB::transaction(function () use ($employeeBLL, $employerBLL, $shiftBLL, $rows) {
             foreach ($rows as $row) {
-                $status = null;
-
-                switch ($status) {
-                    case $row[6] === 'Complete':
-                        $status = Shift::TYPE_STATUS_COMPLETE;
-                        break;
-                    case $row[6] === 'Failed':
-                        $status = Shift::TYPE_STATUS_FAILED;
-                        break;
-                    case $row[6] === 'Pending':
-                        $status = Shift::TYPE_STATUS_PENDING;
-                        break;
-                }
-
                 $data = [
                     'date' => $row[0] ?? '-',
                     'full_name' => $row[1] ?? '-',
@@ -54,7 +40,12 @@ class ImportList implements ToCollection
                     'hours' => $row[3] ?? '-',
                     'rate_per_hour' => $row[4] ?? '-',
                     'taxable' => $row[5] && $row[5] == 'Yes' ? Shift::TYPE_TAXABLE_YES : Shift::TYPE_TAXABLE_NO,
-                    'status' => $status,
+                    'status' => $row[6] === 'Complete'
+                        ? Shift::TYPE_STATUS_COMPLETE
+                        : ($row[6] === 'Failed'
+                            ? Shift::TYPE_STATUS_FAILED
+                            : Shift::TYPE_STATUS_PENDING
+                        ),
                     'type' => $row[7] === 'Day' ? Shift::TYPE_SHIFT_DAY : Shift::TYPE_SHIFT_NIGHT,
                     'paid_at' => $row[8] ?? null,
                 ];

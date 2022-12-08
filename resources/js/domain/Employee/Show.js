@@ -110,7 +110,7 @@ const Show = () => {
       disableFilters: true,
       search: { value: '', regex: 'true' },
       Cell: ({ value, row }) => {
-        return row.original.paid_at ? '£ ' + row.original.paid_at : '-'
+        return row.original.paid_at ? row.original.paid_at : '-'
       }
     }
   ]

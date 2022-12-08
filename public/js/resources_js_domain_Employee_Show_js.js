@@ -8033,7 +8033,7 @@ var Show = function Show() {
     Cell: function Cell(_ref3) {
       var value = _ref3.value,
           row = _ref3.row;
-      return row.original.paid_at ? '£ ' + row.original.paid_at : '-';
+      return row.original.paid_at ? row.original.paid_at : '-';
     }
   }];
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Shared_Layout_Admin_LayoutAdmin__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -8756,4 +8756,4 @@ validatorjs_dist_validator_min__WEBPACK_IMPORTED_MODULE_0___default().register('
 /***/ })
 
 }]);
-//# sourceMappingURL=resources_js_domain_Employee_Show_js.js.map?id=0c3373777b839658
+//# sourceMappingURL=resources_js_domain_Employee_Show_js.js.map?id=7316bf3703694304

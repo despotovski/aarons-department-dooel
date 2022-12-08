@@ -151,9 +151,9 @@ class ShiftController extends Controller
             'date' => Carbon::parse($data['date'])->toDateString(),
             'hours' => $data['hours'],
             'rate_per_hour' => $data['rate_per_hour'],
-            'taxable' => $data['taxable'] === 'Yes' ? Shift::TYPE_TAXABLE_YES : Shift::TYPE_TAXABLE_NO,
-            'status' => $data['status'] === 'Pending' ? Shift::TYPE_STATUS_PENDING : Shift::TYPE_STATUS_COMPLETE,
-            'type' => $data['type'] === 'Day' ? Shift::TYPE_SHIFT_DAY : Shift::TYPE_SHIFT_NIGHT
+            'taxable' => $data['taxable'],
+            'status' => $data['status'],
+            'type' => $data['type'],
          ]);
 
         //Updating shift with calculation

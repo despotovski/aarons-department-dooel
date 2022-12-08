@@ -153,13 +153,14 @@ class ShiftController extends Controller
             'taxable' => $data['taxable'],
             'status' => $data['status'],
             'type' => $data['type'],
+            'paid_at' => $data['status'] === Shift::TYPE_STATUS_COMPLETE ? now() : null
          ]);
-
-        if ($data['status'] === Shift::TYPE_STATUS_COMPLETE) {
-            $this->shiftBLL->update($shift, [
-                'paid_at' => now()
-            ]);
-        }
+//
+//        if ($data['status'] === Shift::TYPE_STATUS_COMPLETE) {
+//            $this->shiftBLL->update($shift, [
+//                'paid_at' => now()
+//            ]);
+//        }
 
         //Updating shift with calculation
         $this->shiftBLL->update($shift, [

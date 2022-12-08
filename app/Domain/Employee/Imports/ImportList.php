@@ -90,8 +90,6 @@ class ImportList implements ToCollection
                 $shiftBLL->update($shift, [
                     'total_paid' => $shift->hours * $shift->rate_per_hour
                 ]);
-
-                ++$this->rows;
             }
         });
     }

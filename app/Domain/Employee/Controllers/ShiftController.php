@@ -155,7 +155,7 @@ class ShiftController extends Controller
             'type' => $data['type'],
             'paid_at' => $data['status'] === Shift::TYPE_STATUS_COMPLETE ? now() : null
          ]);
-        
+
         //Updating shift with calculation
         $this->shiftBLL->update($shift, [
             'total_paid' => $shift->hours * $shift->rate_per_hour

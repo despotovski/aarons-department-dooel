@@ -21,7 +21,7 @@ class CreateShiftsTable extends Migration
             $table->boolean('taxable');
             $table->boolean('status');
             $table->boolean('type');
-            $table->float('total_paid');
+            $table->float('total_paid')->nullable();
             $table->unsignedBigInteger('employee_id');
             $table->date('paid_at')->nullable();
             $table->timestamps();

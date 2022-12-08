@@ -107,8 +107,7 @@ class ShiftController extends Controller
             'rate_per_hour' => $data['rate_per_hour'],
             'taxable' => $data['taxable'],
             'status' => $data['status'],
-            'type' => $data['type'],
-            'total_paid' => 0
+            'type' => $data['type']
         ]);
 
         //Updating shift with calculation

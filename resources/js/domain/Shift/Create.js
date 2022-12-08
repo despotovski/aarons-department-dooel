@@ -58,11 +58,11 @@ const Create = () => {
         },
         {
           element: FORM_ELEMENT_TYPES.INPUT,
-          type: 'number',
+          type: 'text',
           name: 'hours',
           label: 'Hours',
           placeholder: 'Hours',
-          rules: 'required',
+          rules: 'required|integer',
           wrapper: {
             element: 'div',
             class: 'col-6'
@@ -70,11 +70,11 @@ const Create = () => {
         },
         {
           element: FORM_ELEMENT_TYPES.INPUT,
-          type: 'number',
+          type: 'text',
           name: 'rate_per_hour',
           label: 'Rate per hour',
           placeholder: 'Rate per hour',
-          rules: 'required',
+          rules: 'required|integer',
           wrapper: {
             element: 'div',
             class: 'col-6'

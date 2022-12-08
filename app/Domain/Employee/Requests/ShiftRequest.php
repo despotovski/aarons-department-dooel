@@ -24,7 +24,12 @@ class ShiftRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'date' => 'required',
+            'hours' => 'required|integer',
+            'rate_per_hour' => 'required|integer',
+            'taxable' => 'required',
+            'status' => 'required',
+            'type' => 'required',
         ];
     }
 }

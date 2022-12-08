@@ -1,5 +1,5 @@
 "use strict";
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_domain_Shift_Create_js"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_domain_Shift_Edit_js"],{
 
 /***/ "./resources/js/components/DataTable/BulkActions/BulkActionsSelect.js":
 /*!****************************************************************************!*\
@@ -7886,10 +7886,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/domain/Shift/Create.js":
-/*!*********************************************!*\
-  !*** ./resources/js/domain/Shift/Create.js ***!
-  \*********************************************/
+/***/ "./resources/js/domain/Shared/Constants.js":
+/*!*************************************************!*\
+  !*** ./resources/js/domain/Shared/Constants.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "SHIFT_TYPE": () => (/* binding */ SHIFT_TYPE),
+/* harmony export */   "TAXABLE": () => (/* binding */ TAXABLE),
+/* harmony export */   "TYPE_STATUS": () => (/* binding */ TYPE_STATUS)
+/* harmony export */ });
+var SHIFT_TYPE = {
+  DAY: 10,
+  NIGHT: 20
+};
+var TYPE_STATUS = {
+  STATUS_COMPLETE: 10,
+  STATUS_PENDING: 20,
+  STATUS_FAILED: 30
+};
+var TAXABLE = {
+  TAXABLE_YES: 10,
+  TAXABLE_NO: 20
+};
+
+/***/ }),
+
+/***/ "./resources/js/domain/Shift/Edit.js":
+/*!*******************************************!*\
+  !*** ./resources/js/domain/Shift/Edit.js ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -7898,12 +7926,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components */ "./resources/js/components/index.js");
-/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
+/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-i18next */ "./node_modules/react-i18next/dist/es/useTranslation.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
 /* harmony import */ var _components_Shared_Layout_Admin_LayoutAdmin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Shared/Layout/Admin/LayoutAdmin */ "./resources/js/components/Shared/Layout/Admin/LayoutAdmin.js");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Shared_Constants__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Shared/Constants */ "./resources/js/domain/Shared/Constants.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -7915,16 +7945,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Create = function Create() {
-  var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_7__.useTranslation)(),
+  var _useTranslation = (0,react_i18next__WEBPACK_IMPORTED_MODULE_8__.useTranslation)(),
       t = _useTranslation.t;
 
   var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props,
       links = _usePage$props.links,
-      options = _usePage$props.options;
+      options = _usePage$props.options,
+      shift = _usePage$props.shift;
   var formData = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(function () {
     return {
       form: {
-        url: links.shift.store,
+        url: (0,_utils__WEBPACK_IMPORTED_MODULE_5__.route)(links.shift.update, {
+          shift: shift.id
+        }),
         method: 'post',
         wrapper: {
           element: 'div',
@@ -7937,7 +7970,9 @@ var Create = function Create() {
         name: 'full_name',
         label: 'Employee name',
         placeholder: 'Employee name',
+        value: shift.employee.full_name,
         rules: 'required',
+        isDisabled: true,
         wrapper: {
           element: 'div',
           "class": 'col-6'
@@ -7948,7 +7983,9 @@ var Create = function Create() {
         name: 'name',
         label: 'Employer name',
         placeholder: 'Employer name',
+        value: shift.employee.employer.name,
         rules: 'required',
+        isDisabled: true,
         wrapper: {
           element: 'div',
           "class": 'col-6'
@@ -7958,6 +7995,7 @@ var Create = function Create() {
         name: 'date',
         label: 'Date',
         placeholder: 'Date',
+        value: shift.date ? new Date(shift.date) : '',
         rules: 'required',
         wrapper: {
           element: 'div',
@@ -7969,6 +8007,7 @@ var Create = function Create() {
         name: 'hours',
         label: 'Hours',
         placeholder: 'Hours',
+        value: shift.hours ? shift.hours : '',
         rules: 'required|integer',
         wrapper: {
           element: 'div',
@@ -7980,6 +8019,7 @@ var Create = function Create() {
         name: 'rate_per_hour',
         label: 'Rate per hour',
         placeholder: 'Rate per hour',
+        value: shift.rate_per_hour ? shift.rate_per_hour : '',
         rules: 'required|integer',
         wrapper: {
           element: 'div',
@@ -7992,6 +8032,7 @@ var Create = function Create() {
         label: 'Taxable',
         placeholder: 'Taxable',
         options: options.taxable,
+        value: shift.taxable,
         rules: 'required',
         wrapper: {
           element: 'div',
@@ -8004,6 +8045,7 @@ var Create = function Create() {
         label: 'Status',
         placeholder: 'Status',
         options: options.statuses,
+        value: shift.status,
         rules: 'required',
         wrapper: {
           element: 'div',
@@ -8016,6 +8058,7 @@ var Create = function Create() {
         label: 'Type',
         placeholder: 'Type',
         options: options.type,
+        value: shift.type,
         rules: 'required',
         wrapper: {
           element: 'div',
@@ -8026,7 +8069,7 @@ var Create = function Create() {
         "class": 'form-footer col-12',
         submit: {
           "class": 'btn btn-primary',
-          text: 'Update'
+          text: t('ui.update')
         },
         additional: [{
           "class": 'btn btn-primary-ghost',
@@ -8039,24 +8082,24 @@ var Create = function Create() {
       }
     };
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Shared_Layout_Admin_LayoutAdmin__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("section", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Shared_Layout_Admin_LayoutAdmin__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("section", {
       className: "pv-xl",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "container",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "pb-md",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h1", {
             className: "pb-0 page-header",
-            children: "Create shift"
+            children: "Edit shift"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_utils__WEBPACK_IMPORTED_MODULE_5__.Link, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_utils__WEBPACK_IMPORTED_MODULE_5__.Link, {
           href: links.shift.index,
           className: "btn-back",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.IconChevronLeft, {}), "Back to list of shifts"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.IconChevronLeft, {}), "Back to list of shifts"]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "form-container",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.FormBuilder, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components__WEBPACK_IMPORTED_MODULE_1__.FormBuilder, {
             formData: formData
           })
         })]
@@ -8723,4 +8766,4 @@ validatorjs_dist_validator_min__WEBPACK_IMPORTED_MODULE_0___default().register('
 /***/ })
 
 }]);
-//# sourceMappingURL=resources_js_domain_Shift_Create_js.js.map?id=06e7700f6b502420
+//# sourceMappingURL=resources_js_domain_Shift_Edit_js.js.map?id=bc16ddfda5f7fbf7
